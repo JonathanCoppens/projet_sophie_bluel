@@ -165,7 +165,7 @@ margin: auto;
 	flex-direction: column;
 }
 
-#contact input, #login input {
+#contact button, #login button, input {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
@@ -179,7 +179,9 @@ margin: auto;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type="submit"]{
+
+
+button {
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
@@ -200,4 +202,3 @@ footer nav ul {
 	justify-content: flex-end;
 	margin: 10em 2em;
 }
-
