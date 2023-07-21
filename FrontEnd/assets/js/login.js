@@ -1,11 +1,15 @@
 "use strict";
 
+const r = fetch('http://localhost:5678/api/users/login');
+console.log(r);
+
 const btn = document.getElementById('submit-btn');
 btn.addEventListener('click', (event) => {
     event.preventDefault()
 
     alert('Connecté !');
 
+}
     const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY4OTU4MzY1MSwiZXhwIjoxNjg5NjcwMDUxfQ.xdvwYjLFwUth24oZcIP8Lhsy8303kNAd6AXz40RcqEs";
 
     localStorage.setItem("token", token);
