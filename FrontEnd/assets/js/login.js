@@ -1,41 +1,29 @@
 "use strict";
 
-const btn = document.getElementById('submit-btn');
+var email = localStorage.getItem("email");
+var password = localStorage.getItem("password");
+
+const btn =  document.getElementById('submit-log-btn');
 
 btn.addEventListener('click', (event) => {
     event.preventDefault();
 
     // Récup  des données du formulaire
 
-    fetch('http://localhost:5678/api/users/login') //Vérification adresse serveur
+    fetch('http://localhost:5678/api-docs/') //Vérification adresse serveur
     .then (response => response.json()) //Récupération info serveur
     .then (data => {
         console.log(data); // Data doit représenter le token émis par le serveur
 
         
 
-    })
+    });
 
-})
+});
 
+/*******/
 
-
-
-
-
-/* const r = fetch('http://localhost:5678/api/users/login');
-console.log(r);
-
-const btn = document.getElementById('submit-btn');
-btn.addEventListener('click', (event) => {
-    event.preventDefault()
-
-    alert('Connecté !');
-
-}
-
-
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY4OTU4MzY1MSwiZXhwIjoxNjg5NjcwMDUxfQ.xdvwYjLFwUth24oZcIP8Lhsy8303kNAd6AXz40RcqEs";
+/*    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY4OTU4MzY1MSwiZXhwIjoxNjg5NjcwMDUxfQ.xdvwYjLFwUth24oZcIP8Lhsy8303kNAd6AXz40RcqEs";
 
     localStorage.setItem("token", token);
 
@@ -66,3 +54,18 @@ value(userID, token, email, password)
     .catch((error) => {
         console.log('Erreur lors de l\'upload', error);
     }); */
+
+    /*****/
+
+    document.getElementById("login").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        var xhr = new XMLHttpRequest ();
+        xhr.onreadystatechange = function () {
+            console.log(this);
+        };
+
+        xhr.open("GET", "/"async/script )
+
+        return false;
+    });
