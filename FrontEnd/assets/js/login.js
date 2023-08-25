@@ -1,5 +1,7 @@
 "use strict";
 
+const url = "http://localhost:5678/api/users/login";
+
 var email = localStorage.getItem("email");
 var password = localStorage.getItem("password");
 
@@ -10,7 +12,7 @@ btn.addEventListener('click', (event) => {
 
     // Récup  des données du formulaire
 
-    fetch('http://localhost:5678/api-docs/') //Vérification adresse serveur
+    fetch(url) //Vérification adresse serveur
     .then (response => response.json()) //Récupération info serveur
     .then (data => {
         console.log(data); // Data doit représenter le token émis par le serveur
@@ -65,7 +67,7 @@ value(userID, token, email, password)
             console.log(this);
         };
 
-        xhr.open("GET", "/"async/script )
+        xhr.open("GET", "/async/script")
 
         return false;
     });

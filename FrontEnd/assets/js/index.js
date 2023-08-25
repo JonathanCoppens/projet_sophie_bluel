@@ -1,7 +1,7 @@
 "use strict";
 
 (()=> {
-    fetch('http://localhost:5678/api/users/login')
+    fetch('http://localhost:5678/api-docs/')
     .then(response => response.json())
     .then(data => {
         console.log(data);
@@ -11,15 +11,15 @@
     });
 })();
 
-const body = document.querySelector('body');
+ /* const body = document.querySelector('body');
 
 const banner = document.getElementById("banner-edit-mode");
 banner.textContent = "Mode édition";
-banner.style.textAlign = "center";
+banner.style.textAlign = "center"; */
 /* banner.style.display = "none"; */
-banner.style.background = "black";
+/*banner.style.background = "black";
 banner.style.color = "white";
 
 body.appendChild(banner);
 
-console.log(banner);
+console.log(banner); */
