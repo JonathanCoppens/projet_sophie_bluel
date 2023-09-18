@@ -136,6 +136,25 @@ li a:hover {
 	text-align: center;
 	margin-bottom: 1em;
 }
+
+.gallery-container {
+	display: flex;
+	justify-content: center;
+	margin: auto 2em;
+}
+
+.filter {
+	font-family: 'Syne';
+	font-weight: 7;
+	color: #1D6154;
+	margin-bottom: 2em;
+	padding: 10px;
+	width: fit-content;
+	text-align: center;
+	border: solid 1px;
+	border-radius: 60px;
+}
+
 .gallery {
 	width: 100%;
 	display: grid;
