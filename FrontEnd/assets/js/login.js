@@ -40,12 +40,14 @@ request.then((response) => {
 
 
 
-const data = {
+/* const data = {
     email: "sophie.bluel@test.tld",
     password: "S0phie"
   };
+
   
-  const response = await fetch("/users", {
+  
+  const response = await fetch("http://localhost:5678/api-docs/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -60,4 +62,36 @@ const data = {
     console.log("Not Authorized");    
   } else (response.status === 404) {
     console.log("User not found");
+  } */
+
+  async function login(email, password) {
+    const response = await fetch('http://localhost:5678/api-docs/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email,
+        password
+      })
+    });
+
+    if (response.ok) {
+      return await response.json();
+    } else {
+      throw new Error(`Login failed with status code ${response.status}`);
+    }
   }
+
+  document.querySelector('#submit-log-btn').addEventListener('click', async () => {
+    const email = document.querySelector('#email').value;
+    const password = document.querySelector('#password').value;
+
+    try {
+      const user = await login(email, password);
+
+      window.location.href = '/';
+    } catch (error) {
+      document.querySelector('#error').textContent = error.message;
+    }
+  });

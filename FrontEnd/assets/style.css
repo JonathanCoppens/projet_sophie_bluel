@@ -132,28 +132,74 @@ li a:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
-#portfolio h2 {
-	text-align: center;
-	margin-bottom: 1em;
+.portfolio-title {
+	display: flex;
+}
+
+.title-modify {
+	display: flex;
+	/* text-align: center; */
+	margin-bottom: 2em;
+	justify-content: center;
+	/* width: auto; */
+	/* flex-direction: row; */
+	align-items: baseline;
+}
+
+.ico-modif {
+	display: flex;
+	/* margin-right: 30%; */
+	/* margin-left: 75px; */
+	align-items: flex-end;
+}
+
+.icon {
+	margin: 0 px;
+}
+
+.open-modal {
+	FONT-WEIGHT: 200;
+	border: none;
+	color: black;
+	background-color: white;
+	padding: 0;
+	margin: 0 0 0 15px;
+	/* width: 10%; */
+	font-family: 'Work Sans';
+	cursor: pointer;
 }
 
 .gallery-container {
 	display: flex;
 	justify-content: center;
-	margin: auto 2em;
+	margin: auto 2em 3em;
+}
+
+.gallery-container button {
+	margin: 0 5px 0 5px;
+	width: fit-content;
+	border: solid 1px #1D6154;
+}
+
+.gallery-container button:hover {
+	background-color:#1D6154;
+	color: white;
+	cursor: pointer;
 }
 
 .filter {
 	font-family: 'Syne';
-	font-weight: 7;
-	color: #1D6154;
-	margin-bottom: 2em;
-	padding: 10px;
-	width: fit-content;
+	font-weight: 700;
+	/* margin-bottom: 2em; */
+	padding: 8px;
+	/* width: fit-content; */
 	text-align: center;
-	border: solid 1px;
-	border-radius: 60px;
 }
+
+/* li .filter {
+	color: white;
+} */
+
 
 .gallery {
 	width: 100%;
@@ -207,12 +253,12 @@ margin: auto;
 button {
 	font-family: 'Syne';
 	font-weight: 700;
-	color: white;
-	background-color: #1D6154;
-	margin : 2em auto ;
+	color: #1D6154;
+	background-color: white;
+	margin : 2em auto;
 	width: 180px;
 	text-align: center;
-	border-radius: 60px ;
+	border-radius: 60px;
 }
 
 .forgot-mdp a {
