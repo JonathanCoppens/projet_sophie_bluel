@@ -1,42 +1,49 @@
+const url = `http://localhost:5678/api/works`;
+
 const allBtn = document.querySelector('#all-btn');
+
 const objectBtn = document.querySelector('#object-btn');
 const appartBtn = document.querySelector('#appart-btn');
 const hotelRestaurantBtn = document.querySelector('#hotel-restaurant-btn');
 
-const url = 'http://localhost:5678/api/works';
+function showAllPics() {
+    fetch(url) //call the URL
+        //if response ok run if not ok => catch error
+        .then(response => response.json()) 
+        // after keep all api's works 
+        .then(works => {
+            // list all of the items with map
+            //gallery
+            works.forEach(work => {
+                const gallery = document.querySelector('.gallery');
+                const figure = document .createElement('figure');
+                const imageElement = document.createElement('img');
+                const figcaption = document.createElement('figcaption');
+                
+                // by using the selector element o
+                // woohoo I did it !! !!!!! order of operations and elements !!!!!!
 
-fetch(url)
-  .then(response => response.json())
-  .then(works => {
-    // Trier les éléments de la galerie en fonction du type d'ouvrage
-    works.sort((workA, workB) => workA.type.localeCompare(workB.type));
+                // put image Element and figcaption in figure element in a first time, gallery take gigure after
+                    figure.appendChild(imageElement);
+                    figure.appendChild(figcaption);
+                    gallery.appendChild(figure);
+                    
+                    imageElement.src = work.imageUrl; // attribute api's url to the image
+                    imageElement.atl = work.title; // attribute the title to alt in img element
+                    figcaption.innerHTML = work.title; // show title to users by push it in HTML code
+                    
 
-    // Créer une fonction pour trier les éléments de la galerie en fonction du bouton cliqué
-    function sortGallery(button) {
-      // Obtenir le type d'ouvrage sélectionné
-      const type = button.getAttribute('data-type');
+                    /* gallery.style.display = 'flex';
+                    gallery.style.flexWrap = 'wrap'; */
+                    
+                });
+                console.log(works);
+            })
 
-      // Filtrer les éléments de la galerie en fonction du type d'ouvrage sélectionné
-      const filteredWorks = works.filter(work => work.type === type);
-
-      // Afficher les éléments de la galerie filtrés
-      displayGallery(filteredWorks);
-    }
-
-    // Ajouter un gestionnaire d'événements à chaque bouton de la barre de navigation
-    allBtn.addEventListener('click', () => sortGallery(allBtn));
-    objectBtn.addEventListener('click', () => sortGallery(objectBtn));
-    appartBtn.addEventListener('click', () => sortGallery(appartBtn));
-    hotelRestaurantBtn.addEventListener('click', () => sortGallery(hotelRestaurantBtn));
-
-    // Afficher la galerie initiale
-    displayGallery(works);
-  })
-  .catch(error => {
-    console.log(error);
-  });
-
-// Fonction pour afficher la galerie
-function displayGallery(works) {
-  // ...
+            .catch(error => {
+            console.log(error);
+            });
 }
+
+document.addEventListener("DOMContentLoaded" /* || "click" */, showAllPics);
+//document.addEventListener("click", showAllPics); 

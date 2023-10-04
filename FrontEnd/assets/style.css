@@ -75,7 +75,7 @@ h1 > span {
 	font-family: 'Work Sans';
 	font-size:10px;
 	letter-spacing: 0.1em;
-;
+
 }
 
 h2{
@@ -84,12 +84,14 @@ h2{
 	font-size: 30px;
 	color: #1D6154;
 }
+
 nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
 
 }
+
 nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
@@ -175,15 +177,18 @@ li a:hover {
 	margin: auto 2em 3em;
 }
 
+
 .gallery-container button {
 	margin: 0 5px 0 5px;
 	width: fit-content;
 	border: solid 1px #1D6154;
 }
 
+#submit-log-btn:hover,
 .gallery-container button:hover {
 	background-color:#1D6154;
 	color: white;
+	transition: 0.5s;
 	cursor: pointer;
 }
 
@@ -196,26 +201,34 @@ li a:hover {
 	text-align: center;
 }
 
-/* li .filter {
-	color: white;
-} */
-
-
 .gallery {
 	width: 100%;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
+	grid-row:auto;
 }
+
+/* .gallery {
+	width: 100%;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+} */
 
 .gallery img {
 	width: 100%;
-
 }
+
+/* .gallery figcaption {
+	display: flex;
+	align-items: center;
+} */
+
 #contact, #login {
 	width: 50%;
-margin: auto;
+	margin: auto;
 }
 #contact > *, #login > *{
 	text-align: center;
