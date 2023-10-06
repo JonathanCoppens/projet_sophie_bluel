@@ -59,7 +59,7 @@ header {
 	margin: 50px 0;
 }
 section {
-	margin: 50px 0;
+	margin: 100px 0;
 }
 
 h1{
@@ -141,7 +141,7 @@ li a:hover {
 .title-modify {
 	display: flex;
 	/* text-align: center; */
-	margin-bottom: 2em;
+	/* margin-bottom: 2em; */
 	justify-content: center;
 	/* width: auto; */
 	/* flex-direction: row; */
@@ -173,13 +173,13 @@ li a:hover {
 
 .gallery-container {
 	display: flex;
+	margin: 3em;
 	justify-content: center;
-	margin: auto 2em 3em;
 }
 
 
 .gallery-container button {
-	margin: 0 5px 0 5px;
+	margin: 0 9px 0 9px;
 	width: fit-content;
 	border: solid 1px #1D6154;
 }
@@ -194,10 +194,8 @@ li a:hover {
 
 .filter {
 	font-family: 'Syne';
-	font-weight: 700;
-	/* margin-bottom: 2em; */
-	padding: 8px;
-	/* width: fit-content; */
+	font-size: medium;
+	padding: 7px 20px;
 	text-align: center;
 }
 
