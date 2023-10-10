@@ -182,6 +182,10 @@ li a:hover {
 	margin: 0 9px 0 9px;
 	width: fit-content;
 	border: solid 1px #1D6154;
+	font-family: 'Syne';
+	font-size: medium;
+	padding: 7px 20px;
+	text-align: center;
 }
 
 #submit-log-btn:hover,
@@ -193,10 +197,7 @@ li a:hover {
 }
 
 .filter {
-	font-family: 'Syne';
-	font-size: medium;
-	padding: 7px 20px;
-	text-align: center;
+	
 }
 
 .gallery {

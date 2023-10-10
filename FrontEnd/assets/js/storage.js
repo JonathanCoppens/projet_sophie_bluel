@@ -5,6 +5,106 @@
         window.localStorage.setItem("password", "S0phie")
 }
 
+/* const url = `http://localhost:5678/api/works`;
+
+const allBtn = document.querySelector('#all-btn');
+
+const objectBtn = document.querySelector('#object-btn');
+const appartBtn = document.querySelector('#appart-btn');
+const hotelRestaurantBtn = document.querySelector('#hotel-restaurant-btn');
+ */
+const works = [];
+
+function showAllPics() {
+  fetch(url) //call the URL
+    //if response ok run if not ok => catch error
+    .then(response => response.json())
+    // after keep all api's works
+    .then(works => {
+      const gallery = document.querySelector('.gallery');
+
+      works.forEach(work => {
+        const figure = document.createElement('figure'); // create figure element
+        figure.classList.add(`category_${work.categoryId}`);
+
+        const imageElement = document.createElement('img'); // create img element
+        const figcaption = document.createElement('figcaption'); // create figcaption element
+
+        imageElement.src = work.imageUrl; // attribute api's url to the image
+        imageElement.alt = work.title; // attribute the title to alt in img element
+        figcaption.innerHTML = work.title; // show title to users by push it in HTML code
+
+        figure.appendChild(imageElement);
+        figure.appendChild(figcaption);
+        gallery.appendChild(figure);
+      });
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
+
+// Appel de la fonction showAllPics() une seule fois, lorsque la page se charge
+(function() {
+  showAllPics();
+})();
+
+// Create a global variable to store the selected filters
+let filters = [];
+
+function showImages(filters, works) {
+  // filters pictures based on selected filter
+  const filteredWorks = works.filter(work => {
+    return filters.some(filter => filter === work.categoryId);
+  });
+
+  // show different filtered pictures on the web page
+  const gallery = document.querySelector('.gallery');
+  gallery.innerHTML = '';
+
+  // check if filter is empty
+  if (filters.length === 0) {
+    // show all images
+    filteredWorks = works;
+  }
+
+  filteredWorks.forEach(work => {
+    const figure = document.createElement('figure');
+    const imageElement = document.createElement('img');
+    const figcaption = document.createElement('figcaption');
+
+    imageElement.src = work.imageUrl;
+    imageElement.alt = work.title;
+    figcaption.innerHTML = work.title;
+
+    figure.appendChild(imageElement);
+    figure.appendChild(figcaption);
+    gallery.appendChild(figure);
+  });
+}
+
+// add click event to different filter
+allBtn.addEventListener('click', () => {
+  filters = [];
+  showImages(filters, works);
+});
+
+objectBtn.addEventListener('click', () => {
+  filters.push('category_1');
+  showImages(filters, works);
+});
+
+appartBtn.addEventListener('click', () => {
+  filters.push('category_2');
+  showImages(filters, works);
+});
+
+hotelRestaurantBtn.addEventListener('click', () => {
+  filters.push('category_3');
+  showImages(filters, works);
+});
+
+
 /* const url = `http://localhost:5678/api/works`; 
 
 const allBtn = document.querySelector('#all-btn');
@@ -102,3 +202,56 @@ hotelRestaurantBtn.addEventListener('click', () => {
     }
 });
  */
+
+
+//***********
+
+const url = `http://localhost:5678/api/works`;
+
+const allBtn = document.querySelector('#all-btn');
+
+const objectBtn = document.querySelector('#object-btn');
+const appartBtn = document.querySelector('#appart-btn');
+const hotelRestaurantBtn = document.querySelector('#hotel-restaurant-btn');
+
+function showAllPics() {
+    fetch(url) //call the URL
+        //if response ok run if not ok => catch error
+        .then(response => response.json()) 
+        // after keep all api's works 
+        .then(works => {
+            // list all of the items with map
+            //gallery
+            works.forEach(work => {
+                const gallery = document.querySelector('.gallery');
+                const figure = document .createElement('figure');
+                const imageElement = document.createElement('img');
+                const figcaption = document.createElement('figcaption');
+                
+                // by using the selector element o
+                // woohoo I did it !! !!!!! order of operations and elements !!!!!!
+
+                // put image Element and figcaption in figure element in a first time, gallery take gigure after
+                    figure.appendChild(imageElement);
+                    figure.appendChild(figcaption);
+                    gallery.appendChild(figure);
+                    
+                    imageElement.src = work.imageUrl; // attribute api's url to the image
+                    imageElement.atl = work.title; // attribute the title to alt in img element
+                    figcaption.innerHTML = work.title; // show title to users by push it in HTML code
+                    
+
+                    /* gallery.style.display = 'flex';
+                    gallery.style.flexWrap = 'wrap'; */
+                    
+                });
+                console.log(works);
+            })
+
+            .catch(error => {
+            console.log(error);
+            });
+}
+
+document.addEventListener("DOMContentLoaded" /* || "click" */, showAllPics);
+//document.addEventListener("click", showAllPics); 
