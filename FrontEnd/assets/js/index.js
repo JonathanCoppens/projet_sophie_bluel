@@ -1,54 +1,52 @@
-const url = `http://localhost:5678/api/works`;
+const URL =  'http://localhost:5678/api/works';
+console.log(URL);
+const FILTERS = document.querySelectorAll('[rel=js-filter]'); // select all elements with this attribute
+console.log(FILTERS);
 
-/* const allBtn = document.querySelector('#all-btn');
 
-const objectBtn = document.querySelector('#object-btn');
-const appartBtn = document.querySelector('#appart-btn');
-const hotelRestaurantBtn = document.querySelector('#hotel-restaurant-btn'); */
+Array.from(FILTERS , filter => filter.onclick = applyFilter); // use the array elements to filter them on the listener event
 
-const filters = document.querySelectorAll('[rel=js-filter]');
-Array.from(filters, filter => filter.onclick = showAllPics);
+function showPics() { // used function to show all pictures while page is loaded
+    fetch(URL)
+    .then(response => response.json()) // catch elements and convert them in json
+    .then(works => {
 
-function showAllPics(event) {
-    fetch(url) //call the URL
-        //if response ok run if not ok => catch error
-        .then(response => response.json()) 
-        // after keep all api's works 
-        .then(works => {
-            const filter = event.target;
-            const value = filter.dataset.filter;
-            console.log(filter);
-            const gallery = document.querySelector('.gallery');
-            // list all of the items with map
-            //gallery
-            works.forEach(work => {
-                
-                const figure = document .createElement('figure');
-                figure.classList.add(`category_${works.categoryId}`);
+        const gallery = document.querySelector('.gallery');
 
-                const imageElement = document.createElement('img');
-                const figcaption = document.createElement('figcaption');
-                
-                // by using the selector element o
-                // woohoo I did it !! !!!!! order of operations and elements !!!!!!
+        Array.from(works).forEach(work => { // get elements and use const for all of them
+            
+            const figure = document.createElement('figure');
+            figure.classList.add(`category_${work.categoryId}`);
 
-                // put image Element and figcaption in figure element in a first time, gallery take gigure after
-                    figure.appendChild(imageElement);
-                    figure.appendChild(figcaption);
-                    gallery.appendChild(figure);
-                    
-                    imageElement.src = work.imageUrl; // attribute api's url to the image
-                    imageElement.atl = work.title; // attribute the title to alt in img element
-                    figcaption.innerHTML = work.title; // show title to users by push it in HTML code
-                    
-                });
-                console.log();
-            })
+            const imageElement = document.createElement('img');
+            const figcaption = document.createElement('figcaption');
 
-            .catch(error => {
-            console.log(error);
-            });
+            figure.appendChild(imageElement);
+            figure.appendChild(figcaption);
+            gallery.appendChild(figure);
+
+            imageElement.src = work.imageUrl;
+            imageElement.alt = work.title;
+            figcaption.innerHTML = work.title;
+
+        });
+        console.log(works);
+    })
+
+    .catch(error => {
+        console.log(error);
+    });
 }
 
-document.addEventListener("DOMContentLoaded" /* || "click" */, showAllPics);
+const picsDisplay = document.addEventListener('DOMContentLoaded', showPics);
 
+function applyFilter(event) {
+    const node = event.target;
+    const value = node.dataset.filter;
+
+    if (value === 'category_all') 
+    showPics();
+    return;
+
+    /* Array.from(FILTERS, filter => ) */
+}
