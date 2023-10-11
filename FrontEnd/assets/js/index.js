@@ -4,11 +4,12 @@ const FILTERS = document.querySelectorAll('[rel=js-filter]'); // select all elem
 console.log(FILTERS);
 
 
+let works =[];
 
-/* const FilterAll = document.querySelector('category_all');
-const Filter1 = document.querySelector('category_1');
-const Filter2 = document.querySelector('category_2');
-const Filter3 = document.querySelector('category_3'); */
+const FilterAll = document.querySelector('[data-category="category_all"]');
+const Filter1 = document.querySelector('[data-category="category_1"]');
+const Filter2 = document.querySelector('[data-category="category_2"]');
+const Filter3 = document.querySelector('[data-category="category_3"]');
 
 
 Array.from(FILTERS, filter => {
@@ -21,8 +22,8 @@ Array.from(FILTERS, filter => {
 function showPics() { // used function to show all pictures while page is loaded
     fetch(URL)
         .then(response => response.json()) // catch elements and convert them in json
-        .then(works => {
-
+        .then(data => {
+            works = data;
             const gallery = document.querySelector('.gallery');
             gallery.innerHTML = '';
             
@@ -61,18 +62,46 @@ FILTERS.forEach(filter => {
 });
 
 function applyFilter(event) {
+    console.log('filtre appliqué');
     const selectedCategory = event.target.dataset.category;
+    //console.log(selectedCategory);
+    if (!works || !Array.isArray(works)) {
+        return;
+    }
 
-    const allWorks = document.querySelectorAll('.gallery figure');
-
-    allWorks.forEach(work => {
-        const category = work.getAttribute('data-category');
-        if (selectedCategory === 'category_all' || category === selectedCategory) {
-            work.style.display = 'block';
-        } else {
-            work.style.display = 'none';
-        }
+    const filteredWorks = works.filter(work => {
+        return selectedCategory === 'category_all' || work.categoryId === selectedCategory;
+    
     });
+    //console.log(filteredWorks);
+    const gallery = document.querySelector('.gallery');
+    gallery.innerHTML= '';
+    
+    filteredWorks.forEach(work => {
+        const figure = document.createElement('figure');
+        figure.classList.add(`category_${work.categoryId}`);
+
+        const imageElement = document.createElement('img');
+        const figcaption = document.createElement('figcaption');
+
+        figure.appendChild(imageElement);
+        figure.appendChild(figcaption);
+        gallery.appendChild(figure);
+
+        imageElement.src = work.imageUrl;
+        imageElement.alt = work.title;
+        figcaption.innerHTML = work.title;
+
+    });
+
+    if (event) {
+        console.log("l'objet event est défini");
+    } else {
+        console.log("l'objet event n'est pas défini");
+    }
+
 }
+console.log();
 
 document.addEventListener('DOMContentLoaded', showPics);
+
