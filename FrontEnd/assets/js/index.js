@@ -4,49 +4,75 @@ const FILTERS = document.querySelectorAll('[rel=js-filter]'); // select all elem
 console.log(FILTERS);
 
 
-Array.from(FILTERS , filter => filter.onclick = applyFilter); // use the array elements to filter them on the listener event
+
+/* const FilterAll = document.querySelector('category_all');
+const Filter1 = document.querySelector('category_1');
+const Filter2 = document.querySelector('category_2');
+const Filter3 = document.querySelector('category_3'); */
+
+
+Array.from(FILTERS, filter => {
+    filter.addEventListener('click', event => { 
+    console.log("Bouton de filtre cliqué");
+    applyFilter(event, works);
+        });
+    }); // use the array elements to filter them on the listener event
 
 function showPics() { // used function to show all pictures while page is loaded
     fetch(URL)
-    .then(response => response.json()) // catch elements and convert them in json
-    .then(works => {
+        .then(response => response.json()) // catch elements and convert them in json
+        .then(works => {
 
-        const gallery = document.querySelector('.gallery');
-
-        Array.from(works).forEach(work => { // get elements and use const for all of them
+            const gallery = document.querySelector('.gallery');
+            gallery.innerHTML = '';
             
-            const figure = document.createElement('figure');
-            figure.classList.add(`category_${work.categoryId}`);
+            works.forEach(work => { // get elements and use const for all of them
+                
+                const figure = document.createElement('figure');
+                figure.classList.add(`category_${work.categoryId}`);
+                figure.setAttribute('data-category', work.categoryId); // keep the ID of each pics
+                
+                console.log(figure);
+                
+                const imageElement = document.createElement('img');
+                const figcaption = document.createElement('figcaption');
+                
+                imageElement.src = work.imageUrl;
+                imageElement.alt = work.title;
+                figcaption.innerHTML = work.title;
 
-            const imageElement = document.createElement('img');
-            const figcaption = document.createElement('figcaption');
+                figure.appendChild(imageElement);
+                figure.appendChild(figcaption);
+                gallery.appendChild(figure);
 
-            figure.appendChild(imageElement);
-            figure.appendChild(figcaption);
-            gallery.appendChild(figure);
-
-            imageElement.src = work.imageUrl;
-            imageElement.alt = work.title;
-            figcaption.innerHTML = work.title;
-
-        });
-        console.log(works);
-    })
+            });
+            console.log(works);
+        })
 
     .catch(error => {
         console.log(error);
     });
 }
 
-const picsDisplay = document.addEventListener('DOMContentLoaded', showPics);
+FILTERS.forEach(filter => {
+    filter.addEventListener('click', event => {
+        applyFilter(event);
+    });
+});
 
 function applyFilter(event) {
-    const node = event.target;
-    const value = node.dataset.filter;
+    const selectedCategory = event.target.dataset.category;
 
-    if (value === 'category_all') 
-    showPics();
-    return;
+    const allWorks = document.querySelectorAll('.gallery figure');
 
-    /* Array.from(FILTERS, filter => ) */
+    allWorks.forEach(work => {
+        const category = work.getAttribute('data-category');
+        if (selectedCategory === 'category_all' || category === selectedCategory) {
+            work.style.display = 'block';
+        } else {
+            work.style.display = 'none';
+        }
+    });
 }
+
+document.addEventListener('DOMContentLoaded', showPics);

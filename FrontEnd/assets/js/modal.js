@@ -42,7 +42,7 @@ function showAllPics() {
 //document.addEventListener("DOMContentLoaded", showAllPics);
 document.addEventListener("click", showAllPics);
 
-function showImages(filter, works) {
+function showImages(filters, works) {
     // filter pics by selected filter
     const filteredWorks = works.filter(work => {
         return filteredWorks.some(filter => filter.name === work.name);
