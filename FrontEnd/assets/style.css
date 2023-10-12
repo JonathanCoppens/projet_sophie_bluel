@@ -171,14 +171,14 @@ li a:hover {
 	cursor: pointer;
 }
 
-.gallery-container {
+.filters {
 	display: flex;
 	margin: 3em;
 	justify-content: center;
 }
 
 
-.gallery-container button {
+.filters button {
 	margin: 0 9px 0 9px;
 	width: fit-content;
 	border: solid 1px #1D6154;
@@ -189,16 +189,13 @@ li a:hover {
 }
 
 #submit-log-btn:hover,
-.gallery-container button:hover {
+.filters button:hover {
 	background-color:#1D6154;
 	color: white;
 	transition: 0.5s;
 	cursor: pointer;
 }
 
-.filter {
-	
-}
 
 .gallery {
 	width: 100%;
@@ -209,21 +206,9 @@ li a:hover {
 	grid-row:auto;
 }
 
-/* .gallery {
-	width: 100%;
-	display:flex;
-	flex-direction: column;
-	justify-content: center;
-} */
-
 .gallery img {
 	width: 100%;
 }
-
-/* .gallery figcaption {
-	display: flex;
-	align-items: center;
-} */
 
 #contact, #login {
 	width: 50%;

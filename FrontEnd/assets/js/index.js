@@ -1,107 +1,46 @@
-const URL =  'http://localhost:5678/api/works';
-console.log(URL);
-const FILTERS = document.querySelectorAll('[rel=js-filter]'); // select all elements with this attribute
+const URL = 'http://localhost:5678/api/works';
+
+const FILTERS = document.querySelectorAll('[rel=js-filter]');
 console.log(FILTERS);
 
+const filters = document.querySelector('.filters');
+console.log(filters);
 
-let works =[];
+const gallery = document.querySelector('.gallery');
+console.log(gallery);
 
-const FilterAll = document.querySelector('[data-category="category_all"]');
-const Filter1 = document.querySelector('[data-category="category_1"]');
-const Filter2 = document.querySelector('[data-category="category_2"]');
-const Filter3 = document.querySelector('[data-category="category_3"]');
+const works = [];
+console.log(works);
 
+function Gallery() {
+  // create a var to catch loaded pictures
+  const loadedImages = new Set();
+  console.log(loadedImages); // log only picture's url
 
-Array.from(FILTERS, filter => {
-    filter.addEventListener('click', event => { 
-    console.log("Bouton de filtre cliqué");
-    applyFilter(event, works);
-        });
-    }); // use the array elements to filter them on the listener event
+  fetch(URL)
+    .then(response => response.json())
+    .then(works => {
+      works.forEach(work => {
+        // verify if picture is already loaded
+        if (!loadedImages.has(work.imageUrl)) {
+          // create an img element
+          const imageElement = document.createElement('img');
 
-function showPics() { // used function to show all pictures while page is loaded
-    fetch(URL)
-        .then(response => response.json()) // catch elements and convert them in json
-        .then(data => {
-            works = data;
-            const gallery = document.querySelector('.gallery');
-            gallery.innerHTML = '';
-            
-            works.forEach(work => { // get elements and use const for all of them
-                
-                const figure = document.createElement('figure');
-                figure.classList.add(`category_${work.categoryId}`);
-                figure.setAttribute('data-category', work.categoryId); // keep the ID of each pics
-                
-                console.log(figure);
-                
-                const imageElement = document.createElement('img');
-                const figcaption = document.createElement('figcaption');
-                
-                imageElement.src = work.imageUrl;
-                imageElement.alt = work.title;
-                figcaption.innerHTML = work.title;
+          // load the picture
+          imageElement.src = work.imageUrl;
 
-                figure.appendChild(imageElement);
-                figure.appendChild(figcaption);
-                gallery.appendChild(figure);
+          // add picture to gallery
+          gallery.appendChild(imageElement);
 
-            });
-            console.log(works);
-        })
-
+          // set picture as loaded
+          loadedImages.add(work.imageUrl);
+          console.log(loadedImages); // log all picture's infos
+        }
+      });
+    })
     .catch(error => {
-        console.log(error);
+      console.log(error);
     });
 }
-
-FILTERS.forEach(filter => {
-    filter.addEventListener('click', event => {
-        applyFilter(event);
-    });
-});
-
-function applyFilter(event) {
-    console.log('filtre appliqué');
-    const selectedCategory = event.target.dataset.category;
-    //console.log(selectedCategory);
-    if (!works || !Array.isArray(works)) {
-        return;
-    }
-
-    const filteredWorks = works.filter(work => {
-        return selectedCategory === 'category_all' || work.categoryId === selectedCategory;
-    
-    });
-    //console.log(filteredWorks);
-    const gallery = document.querySelector('.gallery');
-    gallery.innerHTML= '';
-    
-    filteredWorks.forEach(work => {
-        const figure = document.createElement('figure');
-        figure.classList.add(`category_${work.categoryId}`);
-
-        const imageElement = document.createElement('img');
-        const figcaption = document.createElement('figcaption');
-
-        figure.appendChild(imageElement);
-        figure.appendChild(figcaption);
-        gallery.appendChild(figure);
-
-        imageElement.src = work.imageUrl;
-        imageElement.alt = work.title;
-        figcaption.innerHTML = work.title;
-
-    });
-
-    if (event) {
-        console.log("l'objet event est défini");
-    } else {
-        console.log("l'objet event n'est pas défini");
-    }
-
-}
-console.log();
-
-document.addEventListener('DOMContentLoaded', showPics);
+document.addEventListener('DOMContentLoaded', Gallery);
 
