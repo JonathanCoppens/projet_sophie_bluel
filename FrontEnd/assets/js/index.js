@@ -70,7 +70,7 @@ function applyFilter(event) {
     }
 
     const filteredWorks = works.filter(work => {
-        return selectedCategory === 'category_all' || work.categoryId === selectedCategory;
+        return selectedCategory === 'all' || work.categoryId == selectedCategory;
     
     });
     //console.log(filteredWorks);
