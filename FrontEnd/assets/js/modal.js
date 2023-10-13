@@ -1,1 +1,2 @@
-function filter
+const URL = 'http://localhost:5678/api/works';
+
