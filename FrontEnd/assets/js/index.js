@@ -1,111 +1,106 @@
-const worksUrl = 'http://localhost:5678/api/works';
-console.log(worksUrl);
-
-const categoriesUrl = 'http://localhost:5678/api/categories';
-console.log(categoriesUrl);
-
-const FILTERS = document.querySelectorAll('[rel=js-filter]');
+const URL =  'http://localhost:5678/api/works';
+console.log(URL);
+const FILTERS = document.querySelectorAll('[rel=js-filter]'); // select all elements with this attribute
 console.log(FILTERS);
 
-const filters = document.querySelector('.filters');
-console.log(filters);
 
-const gallery = document.querySelector('.gallery');
-console.log(gallery);
+let works =[];
 
-const works = [];
-console.log(works);
+const FilterAll = document.querySelector('[data-category="category_all"]');
+const Filter1 = document.querySelector('[data-category="category_1"]');
+const Filter2 = document.querySelector('[data-category="category_2"]');
+const Filter3 = document.querySelector('[data-category="category_3"]');
 
-let categories = [];
 
-function Gallery() {
-  // create a var to catch loaded pictures
-  const loadedImages = new Set();
-  console.log(loadedImages); // log only picture's url
+Array.from(FILTERS, filter => {
+    filter.addEventListener('click', event => { 
+    console.log("Bouton de filtre cliqué");
+    applyFilter(event, works);
+        });
+    }); // use the array elements to filter them on the listener event
 
-  fetch(worksUrl)
-    .then(response => response.json())
-    .then(works => {
-      works.forEach(work => {
-        // verify if picture is already loaded
-        if (!loadedImages.has(work.imageUrl)) {
-          // create an img element
-          const imageElement = document.createElement('img');
+function showPics() { // used function to show all pictures while page is loaded
+    fetch(URL)
+        .then(response => response.json()) // catch elements and convert them in json
+        .then(data => {
+            works = data;
+            const gallery = document.querySelector('.gallery');
+            gallery.innerHTML = '';
+            
+            works.forEach(work => { // get elements and use const for all of them
+                
+                const figure = document.createElement('figure');
+                figure.classList.add(`category_${work.categoryId}`);
+                figure.setAttribute('data-category', work.categoryId); // keep the ID of each pics
+                
+                console.log(figure);
+                
+                const imageElement = document.createElement('img');
+                const figcaption = document.createElement('figcaption');
+                
+                imageElement.src = work.imageUrl;
+                imageElement.alt = work.title;
+                figcaption.innerHTML = work.title;
 
-          // load the picture
-          imageElement.src = work.imageUrl;
+                figure.appendChild(imageElement);
+                figure.appendChild(figcaption);
+                gallery.appendChild(figure);
 
-          // add picture to gallery
-          gallery.appendChild(imageElement);
+            });
+            console.log(works);
+        })
 
-          // set picture as loaded
-          loadedImages.add(work.imageUrl);
-          //console.log(loadedImages); // log all picture's infos
-        }
-      });
-    })
     .catch(error => {
-      console.log(error);
+        console.log(error);
     });
-
-  return loadedImages;
 }
-
-function filterWorksByCategory(works, category) {
-  return works.filter(work => work.categoryId === category.id);
-}
-
-function sortWorks(works) {
-  works.sort((work1, work2) => work1.title.localeCompare(work2.title));
-
-  return works;
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  // get the works array from the Gallery function
-  const worksArray = Gallery();
-  console.log(worksArray);
-
-  // get the categories array
-  fetch(categoriesUrl)
-    .then(response => response.json())
-    .then(categories => {
-      this.categories = categories;
-    })
-    .catch(error => {
-      console.log(error);
-    });
-
-  // sort the works array by title
-  const sortedWorks = sortWorks(worksArray);
-
-  // empty the gallery
-  gallery.innerHTML = '';
-
-  // update gallery with sortd pictures
-  sortedWorks.forEach(work => {
-    const imageElement = document.createElement('img');
-    imageElement.src = work.imageUrl;
-    gallery.appendChild(imageElement);
-  });
-});
 
 FILTERS.forEach(filter => {
-  filter.addEventListener('click', function () {
-    // get clicked button category
-    const category = this.dataset.category;
-
-    // filter the works array by category
-    const filteredWorks = filterWorksByCategory(worksArray, category);
-
-    // empty the gallery
-    gallery.innerHTML = '';
-
-    // update gallery with filtered and sorted pictures
-    filteredWorks.forEach(work => {
-      const imageElement = document.createElement('img');
-      imageElement.src = work.imageUrl;
-      gallery.appendChild(imageElement);
+    filter.addEventListener('click', event => {
+        applyFilter(event);
     });
-  });
 });
+
+function applyFilter(event) {
+    console.log('filtre appliqué');
+    const selectedCategory = event.target.dataset.category;
+    //console.log(selectedCategory);
+    if (!works || !Array.isArray(works)) {
+        return;
+    }
+
+    const filteredWorks = works.filter(work => {
+        return selectedCategory === 'category_all' || work.categoryId === selectedCategory;
+    
+    });
+    //console.log(filteredWorks);
+    const gallery = document.querySelector('.gallery');
+    gallery.innerHTML= '';
+    
+    filteredWorks.forEach(work => {
+        const figure = document.createElement('figure');
+        figure.classList.add(`category_${work.categoryId}`);
+
+        const imageElement = document.createElement('img');
+        const figcaption = document.createElement('figcaption');
+
+        figure.appendChild(imageElement);
+        figure.appendChild(figcaption);
+        gallery.appendChild(figure);
+
+        imageElement.src = work.imageUrl;
+        imageElement.alt = work.title;
+        figcaption.innerHTML = work.title;
+
+    });
+
+    if (event) {
+        console.log("l'objet event est défini");
+    } else {
+        console.log("l'objet event n'est pas défini");
+    }
+
+}
+console.log();
+
+document.addEventListener('DOMContentLoaded', showPics);
