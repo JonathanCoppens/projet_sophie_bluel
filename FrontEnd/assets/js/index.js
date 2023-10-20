@@ -6,12 +6,6 @@ console.log(FILTERS);
 
 let works =[];
 
-const FilterAll = document.querySelector('[data-category="category_all"]');
-const Filter1 = document.querySelector('[data-category="category_1"]');
-const Filter2 = document.querySelector('[data-category="category_2"]');
-const Filter3 = document.querySelector('[data-category="category_3"]');
-
-
 Array.from(FILTERS, filter => {
     filter.addEventListener('click', event => { 
     console.log("Bouton de filtre cliqué");
@@ -55,11 +49,6 @@ function showPics() { // used function to show all pictures while page is loaded
     });
 }
 
-FILTERS.forEach(filter => {
-    filter.addEventListener('click', event => {
-        applyFilter(event);
-    });
-});
 
 function applyFilter(event) {
     console.log('filtre appliqué');
@@ -67,13 +56,13 @@ function applyFilter(event) {
     //console.log(selectedCategory);
     if (!works || !Array.isArray(works)) {
         return;
+        
     }
 
     const filteredWorks = works.filter(work => {
         return selectedCategory === 'all' || work.categoryId == selectedCategory;
+      });
     
-    });
-    //console.log(filteredWorks);
     const gallery = document.querySelector('.gallery');
     gallery.innerHTML= '';
     
