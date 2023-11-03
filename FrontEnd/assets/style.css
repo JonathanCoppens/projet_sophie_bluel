@@ -236,6 +236,8 @@ li a:hover {
 }
 #contact label, #login label {
 	margin: 2em 0 1em 0;
+	font-weight: 600;
+	opacity: 0.8;
 }
 #contact textarea, #login textarea {
 	border: none;

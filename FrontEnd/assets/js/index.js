@@ -34,7 +34,8 @@ function applyFilter(category) {
     figure.classList.add(`category_${work.categoryId}`);
     /* figure.setAttribute('data-category', work.categoryId); */ 
 
-    const imageElement = document.createElement('img');    
+    const imageElement = document.createElement('img');
+    imageElement.loading = "lazy";
     imageElement.src = work.imageUrl;
     imageElement.alt = work.title;
 
@@ -49,19 +50,13 @@ function applyFilter(category) {
   });
 }
 
-
-/* window.addEventListener('load', async () => {
+window.addEventListener('load', async () => {
   try {
     works = await httpGet(URL);
+    //console.log(works);
     applyFilter(); // Afficher toutes les œuvres par défaut après le chargement complet de la page
+    //console.log(applyFilter);
   } catch (error) {
-    console.error("Une erreur s'est produite lors du chargement des œuvres :", error);
+    console.error("Une erreur s'est produite lors du chargement de la gallerie :", error);
   }
-}); */
-
-
-
-(async () => {
-    works = await httpGet(URL);
-    applyFilter();
-})();
+});
