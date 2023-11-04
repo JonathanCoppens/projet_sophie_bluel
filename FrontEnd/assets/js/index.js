@@ -19,7 +19,7 @@ FILTERS.forEach(filter => {
       applyFilter(filter.dataset.category);
       console.log(applyFilter);
     });
-  });
+});
 
 function applyFilter(category) {
   const filteredWorks = works.filter(work => category == 'all' || work.categoryId == category);
@@ -54,7 +54,7 @@ window.addEventListener('load', async () => {
   try {
     works = await httpGet(URL);
     //console.log(works);
-    applyFilter(); // Afficher toutes les œuvres par défaut après le chargement complet de la page
+    applyFilter('all'); // Afficher toutes les œuvres par défaut après le chargement complet de la page
     //console.log(applyFilter);
   } catch (error) {
     console.error("Une erreur s'est produite lors du chargement de la gallerie :", error);

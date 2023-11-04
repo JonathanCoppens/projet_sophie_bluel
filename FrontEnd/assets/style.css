@@ -22,6 +22,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	background-color: rgb(255, 252, 247);
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -181,7 +182,7 @@ li a:hover {
 .filters button {
 	margin: 0 9px 0 9px;
 	width: fit-content;
-	border: solid 1px #1D6154;
+	border: solid 2px #1D6154;
 	font-family: 'Syne';
 	font-size: medium;
 	padding: 7px 20px;
@@ -253,7 +254,7 @@ button {
 	font-family: 'Syne';
 	font-weight: 700;
 	color: #1D6154;
-	background-color: white;
+	background-color: rgb(255, 252, 247);
 	margin : 2em auto;
 	width: 180px;
 	text-align: center;
@@ -262,7 +263,9 @@ button {
 
 .forgot-mdp a {
 	/* text-decoration: none; */
-	color: rgba(0, 0, 0, 0.459);
+	color: rgba(0, 0, 0, 0.75);
+	font-weight: 100;
+	font-weight:bold ;
 }
 
 footer nav ul {
