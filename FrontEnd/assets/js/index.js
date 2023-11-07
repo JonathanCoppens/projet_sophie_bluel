@@ -60,3 +60,17 @@ window.addEventListener('load', async () => {
     console.error("Une erreur s'est produite lors du chargement de la gallerie :", error);
   }
 });
+
+const isLoggedIn = JSON.parse(localStorage.getItem("user")) !== null;
+
+if (isLoggedIn) {
+  const filters = document.querySelectorAll(".filters");
+  filters.forEach(filter => {
+    filter.style.display = "flex";
+  });
+}
+
+const filtersForm = document.querySelector(".filters");
+filtersForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+});

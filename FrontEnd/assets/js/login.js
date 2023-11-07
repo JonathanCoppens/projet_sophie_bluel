@@ -20,9 +20,24 @@ form.addEventListener('submit', async (event) => {
   });
 
   if(response.status === 200) {
-    console.log(response);
-    //location.href = '/';
+  
   } else {
     alert('Erreur de connexion');
   }
+
+const user = {
+  name: response.json().name,
+  email: response.json().email,
+  authToken: response.json().authToken
+};
+
+localStorage.setItem("user", JSON.stringify(user));
+
+location.href = "index.html";
+
+// stay on the login page till the password and email adress are both uncorrect
+if (response.status !== 200) {
+  location.reload();
+}
 });
+
