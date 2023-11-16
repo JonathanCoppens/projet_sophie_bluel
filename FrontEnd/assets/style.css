@@ -135,8 +135,9 @@ li a:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
-.portfolio-title {
+.portfolio-title h2 {
 	display: flex;
+	justify-content: center;
 }
 
 .title-modify {

@@ -28,6 +28,7 @@ form.addEventListener('submit', async (event) => {
 const user = {
   name: response.json().name,
   email: response.json().email,
+  
   authToken: response.json().authToken
 };
 
