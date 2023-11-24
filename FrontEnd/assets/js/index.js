@@ -63,8 +63,8 @@ window.addEventListener('load', async () => {
 
 const isLoggedIn = JSON.parse(localStorage.getItem("user")) !== null;
 
-if (isLoggedIn) {
-  const filters = dicument.querySelectorAll('.filters');
+/* if (isLoggedIn) {
+  const filters = document.querySelectorAll('.filters');
   filters.forEach((filter) => {
     if(!isLoggedIn) {
       filters.style.display = 'none';
@@ -77,7 +77,7 @@ if (isLoggedIn) {
       filter.appendChild(modalLink);
     }
   });
-}
+} */
 
 const filtersForm = document.querySelector(".filters");
 filtersForm.addEventListener("submit", (event) => {
