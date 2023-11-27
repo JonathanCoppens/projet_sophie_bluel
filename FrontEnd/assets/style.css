@@ -111,6 +111,7 @@ li a {
 li a:hover {
 	color: #B1663C;
 }
+/*introduction*/
 #introduction {
 	display: flex;
 	align-items: center;
@@ -135,6 +136,8 @@ li a:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
+
+/*portfolio*/
 .portfolio-title h2 {
 	display: flex;
 	justify-content: center;
@@ -161,6 +164,7 @@ li a:hover {
 	margin: 0 px;
 }
 
+/*modal*/
 .open-modal {
 	FONT-WEIGHT: 200;
 	border: none;
@@ -172,6 +176,38 @@ li a:hover {
 	cursor: pointer;
 }
 
+.close-modal {
+	width: 25px;
+	height: 25px;
+	border-radius: 0%;
+	border: none;
+	color: black;
+	cursor: pointer;
+	z-index: 1;	
+}
+
+.modal-overlay {
+	background-color: black;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0.5;
+	pointer-events: none;
+	z-index: 3;
+}
+
+.body-modal {
+	background-color:#fff;
+	width: 50%;
+	height: 75%;
+	display: flex;
+	margin: auto;
+	opacity: 1;
+}
+
+/*filters*/
 .filters {
 	display: flex;
 	margin: 3em;
@@ -198,7 +234,7 @@ li a:hover {
 	cursor: pointer;
 }
 
-
+/*gallery*/
 .gallery {
 	margin-top: 100px;
 	width: 100%;
@@ -213,6 +249,7 @@ li a:hover {
 	width: 100%;
 }
 
+/*contact form*/
 #contact, #login {
 	width: 50%;
 	margin: auto;
@@ -247,6 +284,7 @@ li a:hover {
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
+/*error message*/
 #error {
 	color: red;
 	padding: 0px 0px 25px 0px;
