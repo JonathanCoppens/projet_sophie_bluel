@@ -188,6 +188,7 @@ li a:hover {
   
   .body-modal {
 	position: absolute;
+	border-radius: 10px;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -202,22 +203,21 @@ li a:hover {
 	color: black;
 	width: 30px;
 	height: 30px;
-	/* top: 5px; */
 	right: 30px;
 	cursor: pointer;
-	border-style: none;
-	font-size: large;
-	font-weight: bold;
 	}
 
 .material-symbols-outlined {
-	font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24,
+	cursor: pointer;
+	position: absolute;
+	right: 20px;
+	top: 20px;
 }
-  
+
+.modal-gallery img {
+	width: auto;
+	display: flex;
+}  
 
 /*filters*/
 .filters {

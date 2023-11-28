@@ -4,26 +4,30 @@ const modal = document.querySelector(".modal-btn");
 modal.addEventListener("click", () => {
     const body = document.body;
     
-    /* const xmarkIcon = document.createElement('i'); */
+    // creating modal elements
     const closeImg = document.createElement('img');
-    const closeModal = document.createElement('button');
+    const gallery = document.querySelector('.gallery');
     const bodyModal = document.createElement('div');
     const modalOverlay = document.createElement('div');
-    /* const closeModalBtn = document.querySelector('.close-modal'); */
+    
+    // copy gallery's elements
+    const galleryCopy = gallery.cloneNode(true);
+    galleryCopy.style.display = 'none';
 
-    /* xmarkIcon.classList.add('fa-solid', 'fa-xmark') */
+    // 
+    closeImg.addEventListener('click', () => {
+        modalOverlay.parentNode.removeChild(modalOverlay);
+    });
+
     closeImg.classList.add('material-symbols-outlined');
-    closeModal.classList.add('close-modal');
+    galleryCopy.classList.add('modal-gallery', 'scroller');
     bodyModal.classList.add('body-modal');
     modalOverlay.classList.add('modal-overlay');
+
     closeImg.src = "./assets/icons/close-cross.png";
 
-
-    //closeModal.innerText = 'x';
-    
-    /* closeModalBtn.appendChild(xmarkIcon); */
-    closeModal.appendChild(closeImg)
-    bodyModal.appendChild(closeModal);
+    bodyModal.appendChild(closeImg)
+    bodyModal.appendChild(galleryCopy)
     modalOverlay.appendChild(bodyModal);
     body.appendChild(modalOverlay);
 
