@@ -3,21 +3,28 @@ const modal = document.querySelector(".modal-btn");
 
 modal.addEventListener("click", () => {
     const body = document.body;
-    // new div to create an overlay for modal
-    const closeBtn = document.createElement("button");
-    const bodyModal = document.createElement("div");
-    const overlay = document.createElement('div');
-    // create the class to use it in the DOM
-    closeBtn.classList.add('close-modal');
+    
+    /* const xmarkIcon = document.createElement('i'); */
+    const closeImg = document.createElement('img');
+    const closeModal = document.createElement('button');
+    const bodyModal = document.createElement('div');
+    const modalOverlay = document.createElement('div');
+    /* const closeModalBtn = document.querySelector('.close-modal'); */
+
+    /* xmarkIcon.classList.add('fa-solid', 'fa-xmark') */
+    closeImg.classList.add('material-symbols-outlined');
+    closeModal.classList.add('close-modal');
     bodyModal.classList.add('body-modal');
-    overlay.classList.add('modal-overlay');
+    modalOverlay.classList.add('modal-overlay');
+    closeImg.src = "./assets/icons/close-cross.png";
 
-    closeBtn.innerText = 'X';
 
-    bodyModal.appendChild(closeBtn);
-    overlay.appendChild(bodyModal);
-    body.appendChild(overlay);
+    //closeModal.innerText = 'x';
+    
+    /* closeModalBtn.appendChild(xmarkIcon); */
+    closeModal.appendChild(closeImg)
+    bodyModal.appendChild(closeModal);
+    modalOverlay.appendChild(bodyModal);
+    body.appendChild(modalOverlay);
 
-    //modal.style.display = 'block';
 })
-
