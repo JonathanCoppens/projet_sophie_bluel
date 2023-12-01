@@ -6,32 +6,41 @@ modal.addEventListener("click", () => {
     
     // creating modal elements
     const closeImg = document.createElement('img');
-    const figcaption = document.querySelector('figcaption');    
-    
+    const modalTitle = document.createElement('h2');
     const gallery = document.querySelector('.gallery');
     const bodyModal = document.createElement('div');
     const modalOverlay = document.createElement('div');
 
-    
     // copy gallery's elements
     const galleryCopy = gallery.cloneNode(true);
 
-    // 
+    // closing modal with the 'X' button
     closeImg.addEventListener('click', () => {
         modalOverlay.parentNode.removeChild(modalOverlay);
     });
 
     closeImg.classList.add('material-symbols-outlined');
-    galleryCopy.classList.add('modal-gallery');
+    modalTitle.classList.add('modal-title');
     bodyModal.classList.add('body-modal');
     modalOverlay.classList.add('modal-overlay');
 
+    modalTitle.innerText = 'Gallerie photo';
     closeImg.src = "./assets/icons/close-cross.png";
-    figcaption.style.display = 'none';
 
+    // itaration on all gallery's images
+
+    galleryCopy.querySelectorAll('figure').forEach((figure) => {
+        // each img copying
+        const imageCopy = figure.querySelector('img').cloneNode(true);
+
+        // add class to resize
+        imageCopy.classList.add('modal-image');
+
+        // add img to modal
+        bodyModal.appendChild(imageCopy);
+    })
     bodyModal.appendChild(closeImg);
-    galleryCopy.appendChild(figcaption);
-    bodyModal.appendChild(galleryCopy);
+    bodyModal.appendChild(modalTitle);
     modalOverlay.appendChild(bodyModal);
     body.appendChild(modalOverlay);
 
