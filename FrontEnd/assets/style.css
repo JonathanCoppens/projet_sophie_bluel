@@ -202,23 +202,26 @@ li a:hover {
   .close-modal {
 	position: absolute;
 	color: black;
-	width: 30px;
-	height: 30px;
-	right: 30px;
+	width: 25px;
 	cursor: pointer;
 	}
 
 .material-symbols-outlined {
 	cursor: pointer;
 	position: absolute;
-	right: 20px;
-	top: 20px;
+	right: 40px;
+	top: 40px;
 }
 
 .modal-image {
 	width:75px;
 	object-fit: cover;
-}	
+}
+
+.modal-title {
+	display: flex;
+	
+}
 
 /*filters*/
 .filters {

@@ -19,8 +19,8 @@ modal.addEventListener("click", () => {
         modalOverlay.parentNode.removeChild(modalOverlay);
     });
 
-    closeImg.classList.add('material-symbols-outlined');
     modalTitle.classList.add('modal-title');
+    closeImg.classList.add('material-symbols-outlined');
     bodyModal.classList.add('body-modal');
     modalOverlay.classList.add('modal-overlay');
 
