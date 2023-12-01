@@ -6,13 +6,15 @@ modal.addEventListener("click", () => {
     
     // creating modal elements
     const closeImg = document.createElement('img');
+    const figcaption = document.querySelector('figcaption');    
+    
     const gallery = document.querySelector('.gallery');
     const bodyModal = document.createElement('div');
     const modalOverlay = document.createElement('div');
+
     
     // copy gallery's elements
     const galleryCopy = gallery.cloneNode(true);
-    galleryCopy.style.display = 'none';
 
     // 
     closeImg.addEventListener('click', () => {
@@ -20,15 +22,17 @@ modal.addEventListener("click", () => {
     });
 
     closeImg.classList.add('material-symbols-outlined');
-    galleryCopy.classList.add('modal-gallery', 'scroller');
+    galleryCopy.classList.add('modal-gallery');
     bodyModal.classList.add('body-modal');
     modalOverlay.classList.add('modal-overlay');
 
     closeImg.src = "./assets/icons/close-cross.png";
+    figcaption.style.display = 'none';
 
-    bodyModal.appendChild(closeImg)
-    bodyModal.appendChild(galleryCopy)
+    bodyModal.appendChild(closeImg);
+    galleryCopy.appendChild(figcaption);
+    bodyModal.appendChild(galleryCopy);
     modalOverlay.appendChild(bodyModal);
     body.appendChild(modalOverlay);
 
-})
+});

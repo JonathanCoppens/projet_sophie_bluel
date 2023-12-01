@@ -2,7 +2,6 @@ const URL = 'http://localhost:5678/api/works';
 //console.log(URL);
 
 const FILTERS = document.querySelectorAll('[rel=js-filter]'); // select all elements with this attribute
-//console.log(FILTERS);
 
 let works = [];
 
