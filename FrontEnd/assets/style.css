@@ -195,7 +195,7 @@ li a:hover {
 	transform: translate(-50%, -50%);
 	width: 35%;
 	height: 80%;
-	background-color: #fff;
+	background-color: #ffffff;
 	z-index: 11; /* Set a higher z-index to place the modal content above the overlay */
   }
   
@@ -213,7 +213,7 @@ li a:hover {
 }
 
 .close-modal:hover {
-	border: solid 1px;
+	border: solid red 1px;
 	border-radius:5px;
 }
 
@@ -223,7 +223,17 @@ li a:hover {
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-column-gap: 0.2px;
 	grid-row-gap: 20px;
+	background-color: #ffffff;
 }
+
+.modal-gallery figure {
+	background-color: #fff;
+}
+
+.gallery-container{
+	background-color: #ffffff;
+}
+
 .modal-gallery img {
 	width: 85%;
 }
@@ -248,7 +258,7 @@ li a:hover {
 	justify-content: center;
 	height: 35px;
 	width: 45%;
-	padding: 10px;
+	padding: 8px;
 	cursor: pointer;
 	border:solid 2px #1D6154;
 	margin-top: 40px;

@@ -1,58 +1,73 @@
 const modal = document.querySelector(".modal-btn");
-//console.log(modal.value);
 
-modal.addEventListener("click", () => {
+modal.addEventListener('click', () => {
     const body = document.body;
-    
-    // creating modal elements
-    const closeImg = document.createElement('img'); // remplacer par &times et 'p'
-    const modalTitle = document.createElement('h3');
-    const gallery = document.querySelector('gallery');
-    const bodyModal = document.createElement('div');
+
+    // overlay modal
     const modalOverlay = document.createElement('div');
+    modalOverlay.classList.add('modal-overlay');
 
-    // copy gallery's elements
-    const galleryCopy = gallery.cloneNode(true);
+    modalOverlay.addEventListener('click', (event) => {
+        if (event.target === modalOverlay) {
+            modalOverlay.parentNode.removeChild(modalOverlay);
+        }
+    });
 
-    // closing modal with the 'X' button
-    closeImg.addEventListener('click', () => {
+    // body modal
+    const bodyModal = document.createElement('div');
+    bodyModal.classList.add('body-modal');
+
+    // gallery
+    const gallery = document.createElement('div');
+    gallery.classList.add('modal-gallery');
+
+    works.forEach(work => {
+    // add items to gallery 
+        const figure = document.createElement('figure');
+        const imageElement = document.createElement('img');
+        imageElement.src = work.imageUrl;
+        imageElement.alt = work.title;
+        figure.appendChild(imageElement);
+        gallery.appendChild(figure);
+    });
+
+    // close button
+    const closeModal = document.createElement('p');
+    closeModal.classList.add('close-modal');
+    closeModal.innerHTML = '&times';
+    closeModal.addEventListener('click', () => {
         modalOverlay.parentNode.removeChild(modalOverlay);
     });
 
+    // modal title
+    const modalTitle = document.createElement('h3');
     modalTitle.classList.add('modal-title');
-    closeImg.classList.add('material-symbols-outlined');
-    bodyModal.classList.add('body-modal');
-    modalOverlay.classList.add('modal-overlay');
+    modalTitle.innerText = 'Galerie photo';
 
-    modalTitle.innerText = 'Gallerie photo';
-    closeImg.src = "./assets/icons/close-cross.png";
+    // gallery contaitner
+    const galleryContainer = document.createElement('div');
+    galleryContainer.classList.add('gallery-container');
 
-    // iteration on all gallery's images
+    // separation line
+    const separationLine = document.createElement('hr');
+    separationLine.classList.add('separation-line');
 
-    console.log(works);
+    // add picture button
+    const addPicturesBtn = document.createElement('button');
+    addPicturesBtn.classList.add('pictures-btn');
+    addPicturesBtn.innerText = 'Ajouter une photo';
 
-    galleryCopy.querySelectorAll('figure').forEach((figure) => {
-        // each img copying
-        const imageCopy = figure.querySelector('img').cloneNode(true);
+    //addPicturesBtn.addEventListener('click', )
 
-        // add class to resize
-        imageCopy.classList.add('modal-image');
+    galleryContainer.appendChild(gallery);
 
-        // add img to modal
-        bodyModal.appendChild(imageCopy);
-    })
-    bodyModal.appendChild(closeImg);
-    bodyModal.prepend(modalTitle);
+    bodyModal.appendChild(closeModal);
+    bodyModal.appendChild(modalTitle);
+    bodyModal.appendChild(galleryContainer);
+    bodyModal.appendChild(separationLine);
+    bodyModal.appendChild(addPicturesBtn);
+
     modalOverlay.appendChild(bodyModal);
     body.appendChild(modalOverlay);
-
 });
 
-// rajouter un formulaire type image regarder dans le backend route upload image
-// mettre les éléments dans le bon ordre 
-// utiliser prepend pour mettre l'élément en premier après le parent
-// voir entité html
-
-for (let i = 0; i < works.length; i++) {
-    console.log(works[i]);
-}
