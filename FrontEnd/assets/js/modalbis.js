@@ -51,12 +51,15 @@ modal.addEventListener('click', () => {
     addPicturesBtn.classList.add('pictures-btn');
     addPicturesBtn.innerText = 'Ajouter une photo';
 
+    //addPicturesBtn.addEventListener('click', )
+
     galleryContainer.appendChild(gallery);
 
     bodyModal.appendChild(closeModal);
     bodyModal.appendChild(modalTitle);
     bodyModal.appendChild(galleryContainer);
     bodyModal.appendChild(separationLine);
+    bodyModal.appendChild(addPicturesBtn);
 
     modalOverlay.appendChild(bodyModal);
     body.appendChild(modalOverlay);

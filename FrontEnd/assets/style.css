@@ -214,11 +214,11 @@ li a:hover {
 	margin: 50px 20px 50px 20px;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-	grid-column-gap: 3px;
-	grid-row-gap: 25px;
+	grid-column-gap: 0.2px;
+	grid-row-gap: 20px;
 }
 .modal-gallery img {
-	width: 90%;
+	width: 85%;
 }
 
 .modal-title {
@@ -229,6 +229,28 @@ li a:hover {
 	display: flex;
 	justify-content: center;
 	background-color: white;
+}
+.separation-line {
+	margin: 20px;
+	border: solid 1px;
+	color: lightgrey;
+}
+
+.pictures-btn {
+	display: flex;
+	justify-content: center;
+	height: 35px;
+	width: 45%;
+	padding: 10px;
+	cursor: pointer;
+	border:solid 2px #1D6154;
+	margin-top: 40px;
+}
+
+.pictures-btn:hover {
+	background-color: #1D6154;
+	color: #fff;
+	transition:0.3s;
 }
 
 /*filters*/
@@ -254,7 +276,7 @@ li a:hover {
 .filters button:hover {
 	background-color:#1D6154;
 	color: white;
-	transition: 0.5s;
+	transition: 0.3s;
 	cursor: pointer;
 }
 
