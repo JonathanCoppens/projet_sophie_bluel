@@ -200,6 +200,8 @@ li a:hover {
   }
   
   .close-modal {
+	display: block;	
+	text-align: center;
 	font-size: x-large;
 	font-weight: bold;
 	position: absolute;
@@ -208,6 +210,11 @@ li a:hover {
 	color: black;
 	width: 25px;
 	cursor: pointer;
+}
+
+.close-modal:hover {
+	border: solid 1px;
+	border-radius:5px;
 }
 
 .modal-gallery {
@@ -225,7 +232,7 @@ li a:hover {
 	margin: 20px 0 20px 0;
 	display: flex;
 	color: black;
-	font-size: x-large;
+	font-size: xx-large;
 	display: flex;
 	justify-content: center;
 	background-color: white;

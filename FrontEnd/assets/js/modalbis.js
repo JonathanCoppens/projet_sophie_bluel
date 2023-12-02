@@ -7,6 +7,12 @@ modal.addEventListener('click', () => {
     const modalOverlay = document.createElement('div');
     modalOverlay.classList.add('modal-overlay');
 
+    modalOverlay.addEventListener('click', (event) => {
+        if (event.target === modalOverlay) {
+            modalOverlay.parentNode.removeChild(modalOverlay);
+        }
+    });
+
     // body modal
     const bodyModal = document.createElement('div');
     bodyModal.classList.add('body-modal');
