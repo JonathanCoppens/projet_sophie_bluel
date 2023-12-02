@@ -17,6 +17,10 @@ modal.addEventListener('click', () => {
     const bodyModal = document.createElement('div');
     bodyModal.classList.add('body-modal');
 
+    // modal container
+    const modalContainer = document.createElement('div');
+    modalContainer.classList.add('modal-container');
+
     // gallery
     const gallery = document.createElement('div');
     gallery.classList.add('modal-gallery');
@@ -51,23 +55,32 @@ modal.addEventListener('click', () => {
     // separation line
     const separationLine = document.createElement('hr');
     separationLine.classList.add('separation-line');
-
+    
     // add picture button
     const addPicturesBtn = document.createElement('button');
     addPicturesBtn.classList.add('pictures-btn');
     addPicturesBtn.innerText = 'Ajouter une photo';
 
-    //addPicturesBtn.addEventListener('click', )
+    addPicturesBtn.addEventListener('click', () => {
+        modalContainer.parentNode.removeChild(modalContainer);
+
+        const leftArrow = document.createElement('img');
+        leftArrow.classList.add('left-arrow');
+        leftArrow.scr = 'asset/icons/fleche-gauche.png';
+
+        modalContainer.appendChild(leftArrow);
+    });
 
     galleryContainer.appendChild(gallery);
 
-    bodyModal.appendChild(closeModal);
-    bodyModal.appendChild(modalTitle);
-    bodyModal.appendChild(galleryContainer);
-    bodyModal.appendChild(separationLine);
-    bodyModal.appendChild(addPicturesBtn);
+    
+    modalContainer.appendChild(modalTitle);
+    modalContainer.appendChild(galleryContainer);
+    modalContainer.appendChild(separationLine);
+    modalContainer.appendChild(addPicturesBtn);
 
+    bodyModal.appendChild(closeModal);
+    bodyModal.appendChild(modalContainer)
     modalOverlay.appendChild(bodyModal);
     body.appendChild(modalOverlay);
 });
-

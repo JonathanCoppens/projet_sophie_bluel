@@ -221,17 +221,16 @@ li a:hover {
 	margin: 50px 20px 50px 20px;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-	grid-column-gap: 0.2px;
 	grid-row-gap: 20px;
 	background-color: #ffffff;
 }
 
 .modal-gallery figure {
-	background-color: #fff;
+	margin: 1px;
 }
 
-.gallery-container{
-	background-color: #ffffff;
+.modal-container, .gallery-container {
+	background-color: #fff;
 }
 
 .modal-gallery img {
@@ -268,6 +267,14 @@ li a:hover {
 	background-color: #1D6154;
 	color: #fff;
 	transition:0.3s;
+}
+
+/*add pictures modal*/
+
+.left-arrow {
+	position: absolute;
+	top: 25px;
+	left: 25px;
 }
 
 /*filters*/
