@@ -68,7 +68,8 @@ modal.addEventListener('click', () => {
         leftArrow.classList.add('left-arrow');
         leftArrow.scr = 'asset/icons/fleche-gauche.png';
 
-        modalContainer.appendChild(leftArrow);
+        bodyModal.appendChild(leftArrow);
+        modalOverlay.appendChild(bodyModal);
     });
 
     galleryContainer.appendChild(gallery);

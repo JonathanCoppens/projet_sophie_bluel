@@ -139,25 +139,17 @@ li a:hover {
 
 /*portfolio*/
 .portfolio-title h2 {
-	display: flex;
-	justify-content: center;
+	text-align: center;
 }
 
 .title-modify {
 	display: flex;
-	/* text-align: center; */
-	/* margin-bottom: 2em; */
 	justify-content: center;
-	/* width: auto; */
-	/* flex-direction: row; */
 	align-items: baseline;
 }
 
 .ico-modif {
 	display: flex;
-	/* margin-right: 30%; */
-	/* margin-left: 75px; */
-	align-items: flex-end;
 }
 
 .icon {
@@ -213,8 +205,9 @@ li a:hover {
 }
 
 .close-modal:hover {
-	border: solid red 1px;
+	box-shadow: black 3px 2px 7px;
 	border-radius:5px;
+	transition: 0.3s;
 }
 
 .modal-gallery {
