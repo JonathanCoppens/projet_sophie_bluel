@@ -61,17 +61,39 @@ modal.addEventListener('click', () => {
     addPicturesBtn.classList.add('pictures-btn');
     addPicturesBtn.innerText = 'Ajouter une photo';
 
-    addPicturesBtn.addEventListener('click', () => {
-        modalContainer.parentNode.removeChild(modalContainer);
+    // click add pictures to make 
+    
+    addPicturesBtn.addEventListener('click', (event) => {
+        if (event.target === addPicturesBtn) {
+          // Remove existing modal content
+          const modalContainer = document.querySelector('.modal-container');
+          modalContainer.innerHTML = '';
+      
+          // Add separation line
+          const separationLine = document.createElement('hr');
+          separationLine.classList.add('separation-line');
+          modalContainer.appendChild(separationLine);
+      
+          // Add close button
+          const closeModal = document.createElement('p');
+          closeModal.classList.add('close-modal');
+          closeModal.innerHTML = '&times;';
+          closeModal.addEventListener('click', () => {
+            const modalOverlay = document.querySelector('.modal-overlay');
+            modalOverlay.parentNode.removeChild(modalOverlay);
+          });
+          modalContainer.appendChild(closeModal);
+      
+          // Add elements to the modal
+          // ... Your code to add additional elements here ...
+      
+          // Re-append the modified modal container to the body
+          const bodyModal = document.querySelector('.body-modal');
+          bodyModal.appendChild(modalContainer);
+        }
+      });
 
-        const leftArrow = document.createElement('img');
-        leftArrow.classList.add('left-arrow');
-        leftArrow.scr = 'asset/icons/fleche-gauche.png';
-
-        bodyModal.appendChild(leftArrow);
-        modalOverlay.appendChild(bodyModal);
-    });
-
+    // add elemtn to DOM
     galleryContainer.appendChild(gallery);
 
     
@@ -85,3 +107,6 @@ modal.addEventListener('click', () => {
     modalOverlay.appendChild(bodyModal);
     body.appendChild(modalOverlay);
 });
+
+
+  console.log(modal);
