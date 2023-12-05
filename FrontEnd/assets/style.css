@@ -279,8 +279,9 @@ li a:hover {
 }
 
 .add-pic-container {
-	/* display: none; */
+	display: none;
 	background-color: #fff;
+	text-align: center;
 }
 
 /*filters*/

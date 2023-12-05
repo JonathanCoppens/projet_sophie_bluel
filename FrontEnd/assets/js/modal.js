@@ -70,7 +70,7 @@ modal.addEventListener('click', () => {
             modalContainer.innerHTML = '';
         
             const addPicContainer = document.querySelector('.add-pic-container');
-            
+            addPicContainer.style.display = 'block';
             // Add close button
             closeModal.addEventListener('click', () => {
                 const modalOverlay = document.querySelector('.modal-overlay');
