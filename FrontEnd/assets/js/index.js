@@ -30,8 +30,7 @@ function applyFilter(category) {
 
   filteredWorks.forEach(work => {
     const figure = document.createElement('figure');
-    figure.classList.add(`category_${work.categoryId}`);
-    /* figure.setAttribute('data-category', work.categoryId); */ 
+    figure.classList.add(`category_${work.categoryId}`); 
 
     const imageElement = document.createElement('img');
     //imageElement.loading = "lazy";

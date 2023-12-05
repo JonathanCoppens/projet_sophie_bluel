@@ -64,36 +64,34 @@ modal.addEventListener('click', () => {
     // click add pictures to make 
     
     addPicturesBtn.addEventListener('click', (event) => {
-        if (event.target === addPicturesBtn) {
-          // Remove existing modal content
-          const modalContainer = document.querySelector('.modal-container');
-          modalContainer.innerHTML = '';
-      
-          // Add separation line
-          const separationLine = document.createElement('hr');
-          separationLine.classList.add('separation-line');
-          modalContainer.appendChild(separationLine);
-      
-          // Add close button
-          const closeModal = document.createElement('p');
-          closeModal.classList.add('close-modal');
-          closeModal.innerHTML = '&times;';
-          closeModal.addEventListener('click', () => {
-            const modalOverlay = document.querySelector('.modal-overlay');
-            modalOverlay.parentNode.removeChild(modalOverlay);
-          });
-          modalContainer.appendChild(closeModal);
-      
-          // Add elements to the modal
-          // ... Your code to add additional elements here ...
-      
-          // Re-append the modified modal container to the body
-          const bodyModal = document.querySelector('.body-modal');
-          bodyModal.appendChild(modalContainer);
-        }
-      });
+        if (event.target === addPicturesBtn) {        
+            // Remove existing modal content
+            const modalContainer = document.querySelector('.modal-container');
+            modalContainer.innerHTML = '';
+        
+            const addPicContainer = document.querySelector('.add-pic-container');
+            
+            // Add close button
+            closeModal.addEventListener('click', () => {
+                const modalOverlay = document.querySelector('.modal-overlay');
+                modalOverlay.parentNode.removeChild(modalOverlay);
+            });
+            addPicContainer.appendChild(closeModal);
 
-    // add elemtn to DOM
+            // left arrow element                               !!!!!!!! NOT FINISH !!!!!!!!
+            const leftArrow = document.createElement('img');
+            leftArrow.classList.add('left-arrow');
+            leftArrow.src = 'assets/icons/fleche-gauche.png'
+            addPicContainer.appendChild(leftArrow);           
+            
+            // Re-append the modified modal container to the body
+            modalContainer.appendChild(closeModal);
+            modalContainer.appendChild(addPicContainer);
+            bodyModal.appendChild(modalContainer);
+        }
+    });
+
+    // add elements to DOM
     galleryContainer.appendChild(gallery);
 
     
@@ -107,6 +105,3 @@ modal.addEventListener('click', () => {
     modalOverlay.appendChild(bodyModal);
     body.appendChild(modalOverlay);
 });
-
-
-  console.log(modal);
