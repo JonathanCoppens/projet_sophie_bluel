@@ -276,18 +276,92 @@ li a:hover {
 	width: 25px;
 	font-size:larger;
 	background-color: #fff;
+	cursor: pointer;
+	border-radius: 5px;
+}
+.left-arrow:hover {
+	box-shadow: black 3px 2px 7px;
+	transition: 0.3s;
 }
 
 .add-pic-container {
 	display: none;
 	background-color: #fff;
 	text-align: center;
+	margin: 25px 50px 25px 50px;
+}
+
+.add-pic-title {
+	margin: 20px 0 30px 0;
+	display: flex;
+	color: black;
+	font-size: x-large;
+	display: flex;
+	justify-content: center;
+	background-color: white;
+}
+
+.add-pictures {
+	background-color: #E8F1F6;
+	border-radius: 3px;	
+	padding: 15px;
+}
+
+.add-pictures > img {
+	background-color: #E8F1F6;
+}
+
+.new-pics-btn {
+	background-color: #CBD6DC;
+	color: #306685;
+	border: none;
+	padding: 10px;
+	margin: 5px;
+	cursor: pointer;
+}
+
+.add-pictures > p {
+	background-color: #E8F1F6;
+	font-size: x-small;
+	margin-top: 5px;
+}
+
+.form-container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	background-color: #fff;
+}
+
+.form-container > label {
+	margin: 30px 0 -5px 0;
+	font-weight: bold;
+}
+
+.form-container > input {
+	width: 99%;
+}
+
+.form-container > select {
+	width: 100%;
+	padding: 15px 0;
+	border: none;
+	box-shadow: 0px 4px 14px rgb(0 0 0 / 8%);
+	margin-bottom: 40px;
+}
+
+.add-pic-submit {
+	padding: 10px;
+	width: 240px;
+	border: none;
+	color: #ffffff;
+	background-color: #A7A7A7;
 }
 
 /*filters*/
 .filters {
 	display: flex;
-	margin: 3em;
+	margin: 3em;	
 	justify-content: center;
 }
 

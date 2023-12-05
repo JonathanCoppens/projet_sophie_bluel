@@ -3,7 +3,7 @@ const modal = document.querySelector(".modal-btn");
 modal.addEventListener('click', () => {
     const body = document.body;
 
-    // overlay modal
+        // overlay modal
     const modalOverlay = document.createElement('div');
     modalOverlay.classList.add('modal-overlay');
 
@@ -71,6 +71,7 @@ modal.addEventListener('click', () => {
         
             const addPicContainer = document.querySelector('.add-pic-container');
             addPicContainer.style.display = 'block';
+
             // Add close button
             closeModal.addEventListener('click', () => {
                 const modalOverlay = document.querySelector('.modal-overlay');
@@ -82,7 +83,13 @@ modal.addEventListener('click', () => {
             const leftArrow = document.createElement('img');
             leftArrow.classList.add('left-arrow');
             leftArrow.src = 'assets/icons/fleche-gauche.png'
-            addPicContainer.appendChild(leftArrow);           
+            addPicContainer.appendChild(leftArrow); 
+            
+            /* leftArrow.addEventListener('click', (event) => {
+              if (event.target === leftArrow) {
+                modalContainer.style.display = 'block';                
+              }
+            }); */
             
             // Re-append the modified modal container to the body
             modalContainer.appendChild(closeModal);
@@ -93,7 +100,6 @@ modal.addEventListener('click', () => {
 
     // add elements to DOM
     galleryContainer.appendChild(gallery);
-
     
     modalContainer.appendChild(modalTitle);
     modalContainer.appendChild(galleryContainer);
