@@ -1,6 +1,7 @@
-const modal = document.querySelector(".modal-btn");
+const modalBtn = document.querySelector('.modal-btn');
 
-modal.addEventListener('click', () => {
+modalBtn.addEventListener('click', () => {
+    //modal.style.display ='block';
     const body = document.body;
 
         // overlay modal
