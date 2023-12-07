@@ -1,7 +1,7 @@
 const modalBtn = document.querySelector('.modal-btn');
 
 modalBtn.addEventListener('click', () => {
-    //modal.style.display ='block';
+    // modal.style.display ='block';
     const body = document.body;
 
         // overlay modal
@@ -26,6 +26,7 @@ modalBtn.addEventListener('click', () => {
     const gallery = document.createElement('div');
     gallery.classList.add('modal-gallery');
 
+    // Loop on work elements 
     works.forEach(work => {
     // add items to gallery 
         const figure = document.createElement('figure');
@@ -62,14 +63,14 @@ modalBtn.addEventListener('click', () => {
     addPicturesBtn.classList.add('pictures-btn');
     addPicturesBtn.innerText = 'Ajouter une photo';
 
-    // click add pictures to make 
+    // click add pictures to open an over modal
     
-    addPicturesBtn.addEventListener('click', (event) => {
-        if (event.target === addPicturesBtn) {        
+    addPicturesBtn.addEventListener('click', () => {       
             // Remove existing modal content
             const modalContainer = document.querySelector('.modal-container');
             modalContainer.innerHTML = '';
         
+            // Add pic container to body
             const addPicContainer = document.querySelector('.add-pic-container');
             addPicContainer.style.display = 'block';
 
@@ -80,23 +81,28 @@ modalBtn.addEventListener('click', () => {
             });
             addPicContainer.appendChild(closeModal);
 
-            // left arrow element                               !!!!!!!! NOT FINISH !!!!!!!!
+            // Add left arrow element                               !!!!!!!! NOT FINISH !!!!!!!!
             const leftArrow = document.createElement('img');
             leftArrow.classList.add('left-arrow');
             leftArrow.src = 'assets/icons/fleche-gauche.png'
             addPicContainer.appendChild(leftArrow); 
             
-            /* leftArrow.addEventListener('click', (event) => {
-              if (event.target === leftArrow) {
-                modalContainer.style.display = 'block';                
-              }
-            }); */
+            leftArrow.addEventListener('click', () => {
+                console.log('Flèche gauche cliquée');
+
+                //const modalOverlay = document.querySelector('modal-overlay');
+              addPicContainer.parentNode.removeChild(addPicContainer)
+
+              modalOverlay.style.display = 'block';
+              
+            });
             
             // Re-append the modified modal container to the body
             modalContainer.appendChild(closeModal);
             modalContainer.appendChild(addPicContainer);
             bodyModal.appendChild(modalContainer);
-        }
+            body.appendChild(modalOverlay);
+        
     });
 
     // add elements to DOM
