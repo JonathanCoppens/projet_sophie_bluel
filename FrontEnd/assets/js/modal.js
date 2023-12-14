@@ -14,7 +14,6 @@ function generateModal() {
         
         const close = document.querySelector('.close-btn');
         close.addEventListener('click', closeModal);
-
         modifBtn.removeEventListener('click', generateModal);
 
         const arrow = document.querySelector('.arrow');
@@ -23,12 +22,12 @@ function generateModal() {
         const title = document.querySelector('.title');
         title.innerText = 'Gallerie photo';
 
-        // body modal
+        // modal body
         const modalBody = document.querySelector('.modal-body');
         
-
         generateGalleryModal();
-        // footer modal
+        // modal footer
+        const modalFooter = document.querySelector('.modal-footer')
         const line = document.querySelector('hr');
 
         const addBtn = document.querySelector('.add-btn');
@@ -36,8 +35,7 @@ function generateModal() {
         
         modal.appendChild(modalHeader);
         modal.appendChild(modalBody);
-        modal.appendChild(line);
-        modal.appendChild(addBtn);
+        modal.appendChild(modalFooter);
         modalOverlay.appendChild(modal);
     });
 }
@@ -45,11 +43,15 @@ function generateModal() {
 function generateGalleryModal() {
     const modalGallery = document.querySelector('.modal-gallery');
 
+    while (modalGallery.firstChild) {
+        modalGallery.removeChild(modalGallery.firstChild);
+    }
     works.forEach(work => {
         const figure = document.createElement('figure');
         const image = document.createElement('img');
         image.src = work.imageUrl;
         image.alt = work.title;
+
         figure.appendChild(image);
         modalGallery.appendChild(figure);
     });

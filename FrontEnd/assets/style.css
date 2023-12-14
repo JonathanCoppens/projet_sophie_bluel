@@ -394,9 +394,9 @@ li a:hover {
 .modal {
 	margin: auto;
 	border-radius: 10px;
-	padding-top: 20px;
-	width: 35%;
-	height: 85%;
+	padding: 25px 100px;
+	width: 30%;
+	height: 90%;
 }
 
 .modal-header {
@@ -426,7 +426,7 @@ li a:hover {
 		display: grid;
 		grid-template-columns: repeat(5, 1fr);
 		grid-template-rows: repeat(3, 1fr);
-		gap: 10px;
+		gap: 25px 10px;
 
 		img{
 			width: 100%;			
@@ -436,7 +436,22 @@ li a:hover {
 }
 
 .modal-footer {
+	margin-top: 60px;
 
+	button{
+		display: flex;
+		justify-content: center;
+		height: 35px;
+		align-items: center;
+		border: #1D6154 solid 2px;
+	}
+	button:hover {
+		color: white;
+		background-color: #1D6154;
+		transition: 0.5s;
+		cursor: pointer;
+		border: none;
+	}
 }
 
 /*filters*/
