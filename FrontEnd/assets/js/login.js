@@ -19,21 +19,23 @@ loginForm.addEventListener('submit', async (event) => {
       password: passwordInput.value
     })
   });
-
+  
   if(response.status === 200) {
-    alert('Bienvenu ');
+    const userData = await response.json();
+    //alert(`Bienvenue, ${userData.name}`);
+    alert("Bienvenue !");
+    console.log(userData.name);
   } else {    
     alert('Email ou mot de pass incorrect');
-  }
+  }  
 
-const user = {
-  name: response.json().name,
-  email: response.json().email,
-  
-  authToken: response.json().authToken
-};
-console.log(user);
-
+  const user = {
+    name: response.json().name,
+    email: response.json().email,
+    
+    authToken: response.json().authToken
+  };
+ 
 localStorage.setItem("user", JSON.stringify(user));
 
 // redirect to main page

@@ -73,4 +73,11 @@ function closeModal() {
     modifBtn.addEventListener('click', generateModal);
 }
 
+function addPicture() {
+    const addBtn = document.querySelector('.add-btn');
+    addBtn.addEventListener('click', () => {
+        generateModal;
+    });
+}
+
 generateModal();

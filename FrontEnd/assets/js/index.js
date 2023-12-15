@@ -76,8 +76,7 @@ filtersForm.addEventListener("submit", (event) => {
 });
 
 // reset the connection status //****
-window.addEventListener('beforeunload', () => {
+/* window.addEventListener('beforeunload', () => {
   localStorage.removeItem('user');
-});
+}); */
                               //*****
-                              
