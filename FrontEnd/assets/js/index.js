@@ -62,9 +62,11 @@ window.addEventListener('load', async () => {
 const isLoggedIn = JSON.parse(localStorage.getItem("user")) !== null;
 
 if (isLoggedIn === true) {
+  console.log('connecté');
   const openModal = document.querySelector('.ico-modif');
   openModal.style.display = 'flex';
 } else {
+  console.log('non connecté');
   openModal.style.display = 'none';
 }
 
@@ -72,3 +74,10 @@ const filtersForm = document.querySelector(".filters");
 filtersForm.addEventListener("submit", (event) => {
   event.preventDefault();
 });
+
+// reset the connection status //****
+window.addEventListener('beforeunload', () => {
+  localStorage.removeItem('user');
+});
+                              //*****
+                              

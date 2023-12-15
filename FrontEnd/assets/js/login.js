@@ -5,6 +5,7 @@ const passwordInput = document.querySelector('#password');
 const loginForm = document.querySelector('#connection');
 
 loginForm.addEventListener('submit', async (event) => {
+  
   // prevent default behavior
   event.preventDefault();
   

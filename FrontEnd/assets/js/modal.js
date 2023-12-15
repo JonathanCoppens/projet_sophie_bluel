@@ -65,6 +65,11 @@ function closeModal() {
     const close = document.querySelector('.close-btn');
     close.removeEventListener('click', closeModal);
 
+    // attempt to click next to modal
+    modalOverlay.addEventListener('click', () => {
+        modifBtn.removeEventListener('click', closeModal); 
+    });
+    
     modifBtn.addEventListener('click', generateModal);
 }
 
