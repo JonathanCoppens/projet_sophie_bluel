@@ -143,15 +143,15 @@ li a:hover {
 }
 
 .title-modify {
-	position: relative;
-	left: 7%;
+	/* position: relative;
+	left: 7%; */
 	display: flex;
 	justify-content: center;
 	align-items: baseline;
 }
 
 .ico-modif {
-	display: flex;
+	display: none;
 }
 
 .icon {

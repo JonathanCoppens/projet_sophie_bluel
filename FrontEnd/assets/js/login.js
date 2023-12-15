@@ -1,11 +1,11 @@
 const loginUrl = 'http://localhost:5678/api/users/login';
 
-const email = document.querySelector('#email');
-const password = document.querySelector('#password');
-const form = document.querySelector('#connection');
+const emailInput = document.querySelector('#email');
+const passwordInput = document.querySelector('#password');
+const loginForm = document.querySelector('#connection');
 
-form.addEventListener('submit', async (event) => {
-  // bloque l'action prévue par l'évènement
+loginForm.addEventListener('submit', async (event) => {
+  // prevent default behavior
   event.preventDefault();
   
   const response = await fetch(loginUrl, {
@@ -14,15 +14,15 @@ form.addEventListener('submit', async (event) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      email: email.value,
-      password: password.value
+      email: emailInput.value,
+      password: passwordInput.value
     })
   });
 
   if(response.status === 200) {
-  
-  } else {
-    alert('Erreur de connexion');
+    alert('Bienvenu ');
+  } else {    
+    alert('Email ou mot de pass incorrect');
   }
 
 const user = {
@@ -31,13 +31,15 @@ const user = {
   
   authToken: response.json().authToken
 };
+console.log(user);
 
 localStorage.setItem("user", JSON.stringify(user));
 
+// redirect to main page
 location.href = "index.html";
 
 // stay on the login page till the password and email adress are both uncorrect
-if (response.status !== 200) {
-  location.reload();
-}
+  if (response.status !== 200) {
+    location.reload();
+  } 
 });

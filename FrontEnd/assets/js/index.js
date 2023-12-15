@@ -61,6 +61,13 @@ window.addEventListener('load', async () => {
 
 const isLoggedIn = JSON.parse(localStorage.getItem("user")) !== null;
 
+if (isLoggedIn === true) {
+  const openModal = document.querySelector('.ico-modif');
+  openModal.style.display = 'flex';
+} else {
+  openModal.style.display = 'none';
+}
+
 const filtersForm = document.querySelector(".filters");
 filtersForm.addEventListener("submit", (event) => {
   event.preventDefault();
