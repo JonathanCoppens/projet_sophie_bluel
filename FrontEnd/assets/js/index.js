@@ -80,3 +80,5 @@ filtersForm.addEventListener("submit", (event) => {
   localStorage.removeItem('user');
 }); */
                               //*****
+
+

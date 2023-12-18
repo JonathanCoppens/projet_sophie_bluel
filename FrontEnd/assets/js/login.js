@@ -22,21 +22,20 @@ loginForm.addEventListener('submit', async (event) => {
   
   if(response.status === 200) {
     const userData = await response.json();
-    //alert(`Bienvenue, ${userData.name}`);
-    alert("Bienvenue !");
-    console.log(userData.name);
+    
+    const user = {
+      email: emailInput.value,      
+      authToken: userData.token
+    };
+   
+  localStorage.setItem("user", JSON.stringify(user));
+  alert("Bienvenue !");  
+
+
   } else {    
     alert('Email ou mot de pass incorrect');
   }  
 
-  const user = {
-    name: response.json().name,
-    email: response.json().email,
-    
-    authToken: response.json().authToken
-  };
- 
-localStorage.setItem("user", JSON.stringify(user));
 
 // redirect to main page
 location.href = "index.html";

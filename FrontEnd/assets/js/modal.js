@@ -6,7 +6,7 @@ function generateModal() {
 
         // modal header
         const modalOverlay = document.querySelector('.modal-overlay');
-        modalOverlay.style.display = 'flex';
+        modalOverlay.style.display = 'flex'; //déplacer
 
         const modal = document.querySelector('.modal');
 
@@ -76,7 +76,7 @@ function closeModal() {
 function addPicture() {
     const addBtn = document.querySelector('.add-btn');
     addBtn.addEventListener('click', () => {
-        generateModal;
+        bodyModal();
     });
 }
 
