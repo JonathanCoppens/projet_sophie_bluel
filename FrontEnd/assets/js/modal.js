@@ -1,135 +1,155 @@
 const modifBtn = document.querySelector('.open-modal');
 
+class CloseBtn {
+      constructor() {
+            this.btn = document.createElement('button');
+            this.btn.classList.add('close-btn');
+            this.btn.innerHTML = '&times;';
+            this.btn.addEventListener('click', closeModal);
+      }
+};
+
 // open modal function
 
 modifBtn.addEventListener('click', (event) => {
-    event.preventDefault();
-    event.stopImmediatePropagation();
-    
-    generateModal();
+      event.preventDefault();
+      event.stopImmediatePropagation();
+
+      generateModal();
 });
-    
+
+/* modifBtn.addEventListener('click', () => {
+      generateModal();
+}); */
+
 function generateModal() {
-    
-    const close = document.querySelector('.close-btn');
-    close.addEventListener('click', closeModal);
-    modifBtn.removeEventListener('click', generateModal);
+      // modal header
 
-    const title = document.querySelector('.title');
-    title.innerText = 'Gallerie photo';
+      const Header = document.createElement('div');
+      Header.classList.add('modal-header');
 
-        // modal header
+      const closeBtn = document.createElement('button');
+      closeBtn.classList.add('close-btn');
+      closeBtn.innerHTML = '&times;';
+      closeBtn.addEventListener('click', closeModal);
 
-        const Header = document.createElement('div');
-              Header.classList.add('modal-header');
-        
-        // modal body
+      modifBtn.removeEventListener('click', generateModal);
+      Header.appendChild(closeBtn);
 
-        const Body = document.createElement('div');
-              Body.classList.add('modal-body');
-        
-        // modal footer
+      const title = document.createElement('h3');
+      title.innerText = 'Gallerie photo';
+      Header.appendChild(title);
 
-        const Footer = document.createElement('div');
-              Footer.classList.add('modal-footer');
 
-        const modal = document.createElement('div');
-              modal.classList.add('modal');
-              modal.appendChild(Header);
-              modal.appendChild(Body);
-              modal.appendChild(Footer);
+      // modal body
 
-        //modal header
-        const overlay = document.createElement('div');
-              overlay.classList.add('modal-overlay');
-              overlay.style.display = 'flex';
-              overlay.appendChild(modal);
-              overlay.addEventListener('click', event => {
+      const Body = document.createElement('div');
+      Body.classList.add('modal-body');
 
-                if (event.target.classList.constains('modal-overlay')) {
-                    closeModal();
-                }
-              });
+      // modal footer
 
-        document.body.append(overlay);
+      const Footer = document.createElement('div');
+      Footer.classList.add('modal-footer');
+
+      const modal = document.createElement('div');
+      modal.classList.add('modal');
+      modal.appendChild(Header);
+      modal.appendChild(Body);
+      modal.appendChild(Footer);
+
+      //modal header
+      const overlay = document.createElement('div');
+      overlay.classList.add('modal-overlay');
+      //overlay.style.display = 'block';
+      overlay.appendChild(modal);
+      overlay.addEventListener('click', event => {
+
+            if (event.target.classList.contains('modal-overlay')) {
+                  closeModal();
+            }
+      });
+
+      document.body.append(overlay);
 };
 
 function generateGalleryModal() {
-    generateModal();
+      generateModal();
 
-    // modal header
-    
-    const closeBtn = document.createElement('button');
-    closeBtn.classList.add('close-btn');
-    closeBtn.innerHTML = '&times;';    
-    closeBtn.addEventListener('click', closeModal);
-          
-    const header = document.querySelector('.modal-header');
-          header.innerText = 'Galerie photo';
-          header.append(closeBtn);
+      // modal header
 
-    // footer
+      const closeBtn = document.createElement('button');
+      closeBtn.classList.add('close-btn');
+      closeBtn.innerHTML = '&times;';
+      modifBtn.removeEventListener('click', generateModal);
 
-    const addBtn = document.createElement('button');
-          addBtn.classList.add('add-btn');
-          addBtn.innerText = 'Ajouter une photo';
-          addBtn.addEventListener('click', event => {
+      const header = document.querySelector('.modal-header');
+      header.innerText = 'Galerie photo';
+      header.append(closeBtn);
+
+      // footer
+
+      const addBtn = document.createElement('button');
+      addBtn.classList.add('add-btn');
+      addBtn.innerText = 'Ajouter une photo';
+      addBtn.addEventListener('click', event => {
             closeModal();
             generateNewWorkModal();
-          });
+      });
 
-    const footer = document.querySelector('.modal-footer');
-          footer.append(addBtn);
-    
-    // modal body
+      const footer = document.querySelector('.modal-footer');
+      footer.append(addBtn);
 
-    const gallery = document.querySelector('div');
-          gallery.classList.add('modal-gallery');
+      // modal body
 
-    works.forEach(work => {
-        const image = document.createElement('image');
-              image.src = work.imageUrl;
-              image.alt = work.title;
-        
-        const figure = document.createElement('figure');
-              figure.appendChild(image);
+      const gallery = document.createElement('div');
+      gallery.classList.add('modal-gallery');
 
-              gallery.appendChild(figure);
-    });
+      works.forEach(work => {
+            const image = document.createElement('image');
+            image.src = work.imageUrl;
+            image.alt = work.title;
 
-    const body = document.querySelector('.modal-body');
-          body.append(gallery);
+            const figure = document.createElement('figure');
+            figure.appendChild(image);
+
+            gallery.appendChild(figure);
+      });
+
+      const body = document.querySelector('.modal-body');
+      body.append(gallery);
+
+      generateGalleryModal();
 }
 
-function generateNewWorkModal () {
-    
-    generateModal();
+function generateNewWorkModal() {
 
-    // modal header
-    const closeBtn = document.createElement('button');
-          closeBtn.classList;add()
-          closeBtn.innerHTML = '&times;';
-          closeBtn.addEventListener('click', closeModal);
+      generateModal();
 
-    const header = document.querySelector('.modal-header');
-          header.innerText = 'Ajout photo';
-          header.append(closeBtn);
+      // modal header
+      const closeBtn = document.createElement('button');
+      closeBtn.classList; add()
+      closeBtn.innerHTML = '&times;';
+      closeBtn.addEventListener('click', closeModal);
+
+      const header = document.querySelector('.modal-header');
+      header.innerText = 'Ajout photo';
+      header.append(closeBtn);
 
 }
 
 // close modal function
 
 function closeModal() {
-    const modalOverlay = document.querySelector('.modal-overlay');
-    modalOverlay.style.display = 'none';
+      const modalOverlay = document.querySelector('.modal-overlay');
+      modalOverlay.style.display = 'none';
 
-    const close = document.querySelector('.close-btn');
-    close.removeEventListener('click', closeModal);
+      const close = document.querySelector('.close-btn');
+      close.removeEventListener('click', closeModal);
 
-    // attempt to click next to modal
-    modalOverlay.addEventListener('click', () => {
-        modifBtn.removeEventListener('click', closeModal); 
-    });
-    
-    modifBtn.addEventListener('click', generateModal);
+      // attempt to click next to modal
+      modalOverlay.addEventListener('click', () => {
+            modifBtn.removeEventListener('click', closeModal);
+      });
+
+      modifBtn.addEventListener('click', generateModal);
 }
