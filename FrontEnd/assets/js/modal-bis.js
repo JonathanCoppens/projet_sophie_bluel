@@ -1,10 +1,10 @@
 const modifBtn = document.querySelector('.open-modal');
 
-modifBtn.addEventListener('click', (event) => {
-    //event.preventDefault();
-    //event.stopImmediatePropagation();
+modifBtn.addEventListener('click', () => {
+    /* event.preventDefault();
+    event.stopImmediatePropagation(); */
 
-    event.generateModal;
+    generateModal();
 
     console.log('bouton "modifier" : cliqué !');
 });
@@ -21,11 +21,10 @@ function generateModal() {
     const closeBtn = document.createElement('button');
     closeBtn.classList.add('close-btn');
     closeBtn.innerHTML = '&times;';
-    //closeBtn.addEventListener('click', closeModal);
+    closeBtn.addEventListener('click', closeModal);
 
+    modifBtn.removeEventListener('click', generateModal);
     Header.appendChild(closeBtn);
-
-    modifBtn.removeEventListener('click', generateModal); 2
 
     const title = document.createElement('h3');
     title.innerText = 'Gallerie photo';
@@ -53,9 +52,39 @@ function generateModal() {
     overlay.classList.add('modal-overlay');
     // have to add a style in css
     overlay.appendChild(modal);
-    overlay.addEventListener('click', (event) => {
-        if (event.target.classlist.contains('modal-overlay')) {
-            //closeModal();
+    overlay.addEventListener('click', event => {
+        if (event.target.classList.contains('modal-overlay')) {
+            closeModal();
         }
     });
+
+    document.body.append(overlay);
+}
+
+/* function generateGalleryModal() {
+    generateModal();
+
+    // Modal header
+
+    const closeBtn = document.createElement('button');
+    closeBtn.classList.add('close-btn');
+    closeBtn.innerHTML = '&times;';
+    modifBtn.removeEventListener('click', generateModal);
+
+    const header = document.querySelector('modal-header');
+    
+} */
+
+function closeModal() {
+    const modalOverlay = document.querySelector('.modal-overlay');
+    modalOverlay.remove();
+    
+    //const close = document.querySelector('.close-btn');
+    //close.addEventListener('click', closeModal);
+    
+    modalOverlay.addEventListener('click', () => {
+        modifBtn.removeEventListener('click', closeModal);
+    });
+
+    modifBtn.addEventListener('click', generateModal);
 }

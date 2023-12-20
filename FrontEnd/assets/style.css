@@ -3,19 +3,87 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -24,46 +92,68 @@ time, mark, audio, video {
 	vertical-align: baseline;
 	background-color: rgb(255, 252, 247);
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
-ol, ul {
+
+ol,
+ul {
 	list-style: none;
 }
-blockquote, q {
+
+blockquote,
+q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
 /** end reset css**/
 body {
 	max-width: 1140px;
-	margin:auto;
-	font-family: 'Work Sans' ;
+	margin: auto;
+	font-family: 'Work Sans';
 	font-size: 14px;
 }
+
 header {
 	display: flex;
 	justify-content: space-between;
 	margin: 50px 0;
 }
+
 section {
 	margin: 100px 0;
 }
 
-h1{
+h1 {
 	display: flex;
 	flex-direction: column;
 	font-family: 'Syne';
@@ -72,14 +162,14 @@ h1{
 	color: #B1663C;
 }
 
-h1 > span {
+h1>span {
 	font-family: 'Work Sans';
-	font-size:10px;
+	font-size: 10px;
 	letter-spacing: 0.1em;
 
 }
 
-h2{
+h2 {
 	font-family: 'Syne';
 	font-weight: 700;
 	font-size: 30px;
@@ -111,11 +201,13 @@ li a {
 li a:hover {
 	color: #B1663C;
 }
+
 /*introduction*/
 #introduction {
 	display: flex;
 	align-items: center;
 }
+
 #introduction figure {
 	flex: 1;
 }
@@ -129,6 +221,7 @@ li a:hover {
 #introduction article {
 	flex: 1;
 }
+
 #introduction h2 {
 	margin-bottom: 1em;
 }
@@ -182,15 +275,15 @@ li a:hover {
 
 .add-pictures {
 	background-color: #E8F1F6;
-	border-radius: 3px;	
+	border-radius: 3px;
 	padding: 15px;
 }
 
-.add-pictures > button {
+.add-pictures>button {
 	width: 45%;
 }
 
-.add-pictures > img {
+.add-pictures>img {
 	background-color: #E8F1F6;
 }
 
@@ -203,7 +296,7 @@ li a:hover {
 	cursor: pointer;
 }
 
-.add-pictures > p {
+.add-pictures>p {
 	background-color: #E8F1F6;
 	font-size: x-small;
 	margin-top: 5px;
@@ -216,16 +309,16 @@ li a:hover {
 	background-color: #fff;
 }
 
-.form-container > label {
+.form-container>label {
 	margin: 30px 0 -5px 0;
 	font-weight: bold;
 }
 
-.form-container > input {
+.form-container>input {
 	width: 99%;
 }
 
-.form-container > select {
+.form-container>select {
 	width: 100%;
 	padding: 20px 0;
 	border: none;
@@ -240,7 +333,7 @@ li a:hover {
 	color: #ffffff;
 	background-color: #A7A7A7;
 	cursor: pointer;
-} 
+}
 
 /* modal */
 /* .open-moda {
@@ -337,8 +430,11 @@ li a:hover {
 	cursor: pointer;
 }
 
-.modal_overlay {
-	display:none;
+.modal-overlay * {
+	background-color: #ffffff;
+}
+
+.modal-overlay {
 	position: fixed;
 	justify-content: center;
 	top: 0;
@@ -350,13 +446,79 @@ li a:hover {
 }
 
 .modal {
-	
+	display: flex;
+	margin: auto;
+	border-radius: 10px;
+	padding: 25px 100px;
+	width: 30%;
+	height: 90%;
+}
+
+.modal-header {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+
+	.close-btn {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 5px 5px 0 0;
+		width: 25px;
+		height: 25px;
+		font-size: xx-large;
+		color: black;
+		border: none;
+		cursor: pointer;
+	}
+
+	h3 {
+		display: flex;
+		justify-content: center;
+		margin: 50px auto;
+		text-align: center;
+		font-size: x-large;
+	}
+}
+
+.modal-body {
+	.modal-gallery {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		grid-template-rows: repeat(3, 1fr);
+		gap: 25px 10px;
+
+		img {
+			width: 100%;
+		}
+	}
+}
+
+.modal-footer {
+	margin-top: 60px;
+
+	button {
+		display: flex;
+		justify-content: center;
+		height: 35px;
+		align-items: center;
+		border: #1D6154 solid 2px;
+	}
+
+	button:hover {
+		color: white;
+		background-color: #1D6154;
+		transition: 0.5s;
+		cursor: pointer;
+		border: none;
+	}
 }
 
 /*filters*/
 .filters {
 	display: flex;
-	margin: 3em;	
+	margin: 3em;
 	justify-content: center;
 }
 
@@ -374,7 +536,7 @@ li a:hover {
 
 #submit-log-btn:hover,
 .filters button:hover {
-	background-color:#1D6154;
+	background-color: #1D6154;
 	color: white;
 	transition: 0.3s;
 	cursor: pointer;
@@ -388,7 +550,7 @@ li a:hover {
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
-	grid-row:auto;
+	grid-row: auto;
 }
 
 .gallery img {
@@ -396,36 +558,49 @@ li a:hover {
 }
 
 /*contact form*/
-#contact, #login {
+#contact,
+#login {
 	width: 50%;
 	margin: auto;
 }
-#contact > *, #login > *{
+
+#contact>*,
+#login>* {
 	text-align: center;
 
 }
-#contact h2, #login h2{
+
+#contact h2,
+#login h2 {
 	margin-bottom: 20px;
 }
-#contact form, #login form {
+
+#contact form,
+#login form {
 	text-align: left;
-	margin-top:30px;
+	margin-top: 30px;
 	display: flex;
 	flex-direction: column;
 }
 
-#contact button, #login button, input {
+#contact button,
+#login button,
+input {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgb(0 0 0 / 8%);
 }
-#contact label, #login label {
+
+#contact label,
+#login label {
 	margin: 2em 0 1em 0;
 	font-weight: 600;
 	opacity: 0.8;
 }
-#contact textarea, #login textarea {
+
+#contact textarea,
+#login textarea {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
@@ -441,7 +616,7 @@ button {
 	font-weight: 700;
 	color: #1D6154;
 	background-color: rgb(255, 255, 255);
-	margin : 2em auto;
+	margin: 2em auto;
 	width: 180px;
 	text-align: center;
 	border-radius: 60px;
@@ -451,7 +626,7 @@ button {
 	/* text-decoration: none; */
 	color: rgba(0, 0, 0, 0.75);
 	font-weight: 100;
-	font-weight:bold ;
+	font-weight: bold;
 }
 
 footer nav ul {
