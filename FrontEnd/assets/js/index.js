@@ -31,17 +31,17 @@ function applyFilter(category) {
   filteredWorks.forEach(work => {
     const figure = document.createElement('figure');
     figure.classList.add(`category_${work.categoryId}`); 
-
+    
     const imageElement = document.createElement('img');
     //imageElement.loading = "lazy";
     imageElement.src = work.imageUrl;
     imageElement.alt = work.title;
+    figure.appendChild(imageElement);
 
     const figcaption = document.createElement('figcaption');
     figcaption.innerHTML = work.title;
-    
-    figure.appendChild(imageElement);
     figure.appendChild(figcaption);    
+    
     gallery.appendChild(figure);
     //console.log(figure);
 
@@ -67,7 +67,7 @@ if (isLoggedIn === true) {
   openModal.style.display = 'flex';
 } else {
   console.log('non connecté');
-  openModal.style.display = 'none';
+  openModal.remove();
 }
 
 const filtersForm = document.querySelector(".filters");
