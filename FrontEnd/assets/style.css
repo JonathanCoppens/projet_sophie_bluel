@@ -472,6 +472,12 @@ li a:hover {
 		cursor: pointer;
 	}
 
+	.back-arrow {
+		position: fixed;
+		top: 10px;
+		left: 50%;
+	}
+
 	h3 {
 		display: flex;
 		justify-content: center;
@@ -484,6 +490,7 @@ li a:hover {
 
 .modal-body {
 	display: flex;
+	flex-direction: column;
 
 	.modal-gallery {
 		display: grid;
@@ -492,14 +499,64 @@ li a:hover {
 		gap: 25px 10px;
 	}
 
+	.add-container {
+		margin: auto;
+		padding: 15px 0;
+		border-radius: 5px;
+		justify-content: center;
+		background-color: #E8F1F6;
+		width: 100%;
+
+		.icon {
+			margin: auto;
+			display: flex;
+			justify-content: center;
+			background-color: #E8F1F6;
+			width: 75px;
+		}
+
+		.add-pic {
+			display: flex;
+			justify-content: center;
+			text-align: center;
+			background-color: #E8F1F6;
+		}
+
+		.add-details {
+			text-align: center;
+			background-color: #E8F1F6;
+		}
+	}
+
+	.form-div {
+		display: flex;
+		flex-direction: column;
+
+		form {
+			display: flex;
+			flex-direction: column;
+
+			label {
+				margin: 10px 0;
+			}
+
+			.select {
+				border: none;
+				height: 50px;
+				box-shadow: 0px 4px 14px rgb(0 0 0 / 8%);
+			}
+		}
+	}
+
 	img {
 		width: 100%;
 	}
+
 }
 
 .modal-footer {
 	text-align: center;
-	margin-top: 60px;
+	margin-top: 50px;
 
 	.hr-container {
 		display: flex;
@@ -515,9 +572,11 @@ li a:hover {
 	}
 
 	button {
+		margin: none;
 		display: flex;
 		justify-content: center;
-		height: 35px;
+		height: 40px;
+		width: 200px;
 		align-items: center;
 		border: #1D6154 solid 2px;
 	}
