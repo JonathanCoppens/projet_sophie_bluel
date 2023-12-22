@@ -183,17 +183,17 @@ function generateNewWorkModal() {
 
         form.appendChild(selectForm);
 
-        // add-container
-        // form
-
         // Modal footer
 
-        
-        /* const footerContent = document.createElement('div');
-        footerContent.classList.add('modal-footer'); */
+        const Submit = document.createElement('button');
+        Submit.classList.add('submit-btn');
+        Submit.innerText = 'Valider';
 
-        /* body.appendChild(bodyContent);
-        footer.appendChild(footerContent); */
+        /* Submit.appendChild('submit', () => {
+
+        }); */
+
+        /* footer.appendChild(Submit); */
     });
 }
 

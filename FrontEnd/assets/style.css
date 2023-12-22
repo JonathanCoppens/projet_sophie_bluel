@@ -422,7 +422,7 @@ li a:hover {
 	}
 } */
 
-/* modal bis */
+/* modal */
 
 .modal-btn {
 	border: none;
@@ -474,6 +474,8 @@ li a:hover {
 
 	.back-arrow {
 		position: fixed;
+		width: 25px;
+		height: 25px;
 		top: 10px;
 		left: 50%;
 	}
@@ -517,9 +519,21 @@ li a:hover {
 
 		.add-pic {
 			display: flex;
+			color: #306685;
+			border: solid 2px #CBD6DC;
 			justify-content: center;
+			align-items: center;
 			text-align: center;
-			background-color: #E8F1F6;
+			background-color: #CBD6DC;
+			height: 40px;
+		}
+
+		.add-pic:hover {
+
+			color: #CBD6DC;
+			background-color: #306685;
+			transition: 0.5s;
+			cursor: pointer;
 		}
 
 		.add-details {
@@ -551,7 +565,6 @@ li a:hover {
 	img {
 		width: 100%;
 	}
-
 }
 
 .modal-footer {
@@ -571,6 +584,7 @@ li a:hover {
 
 	}
 
+	/* Gallery Modal */
 	button {
 		margin: none;
 		display: flex;
@@ -587,6 +601,17 @@ li a:hover {
 		transition: 0.5s;
 		cursor: pointer;
 		border: none;
+	}
+
+	/* New Work Modal */
+	.submit-btn {
+		border: solid 2px #A7A7A7;
+		color: #A7A7A7;
+	}
+
+	.submit-btn:hover {
+		background-color: #A7A7A7;
+		color: white;
 	}
 }
 
